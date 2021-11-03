@@ -26,7 +26,7 @@
 - 建物のオーナーと照明の設計担当が打ち合わせを行う時
 
 ## 設計書
-- ER図 https://drive.google.com/drive/recent
+- ER図 https://drive.google.com/file/d/1-EzkoA0zb4gkHmPzXgV9CGZUHCBYHSbV/view?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1bIQnwA5uEXGdjTAiUuRy10iLJlMC4aPh7b9RzUuNdng/edit?usp=sharing
