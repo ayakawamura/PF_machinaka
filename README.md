@@ -1,9 +1,9 @@
 # まちなからいと
 
 ## サイト概要
-- 自身の好きな照明を共有したい方、照明の知識を得たい方へ向けて作成したサイトです。
-- 街中で撮影した照明の写真を撮影場所と共に投稿し、ユーザー間で共有することができます。
-- お気に入りの写真を見つけて照明選定の参考にして頂けると嬉しいです。
+街中で撮影した照明の写真を撮影場所と共に投稿し、ユーザー間で共有することができます。
+自身の好きな照明を共有したい方、照明の知識を得たい方へ向けて作成しました。
+お気に入りの写真を見つけて照明選定の参考にして頂けると嬉しいです。
 
 ### サイトテーマ
 - 街中の照明写真を投稿して共有するサイト
@@ -26,7 +26,9 @@
 - 建物のオーナーと照明の設計担当が打ち合わせを行う時
 
 ## 設計書
-- ER図 https://drive.google.com/file/d/1-EzkoA0zb4gkHmPzXgV9CGZUHCBYHSbV/view?usp=sharing
+- ワイヤーフレーム  
+- ER図  https://drive.google.com/file/d/1-EzkoA0zb4gkHmPzXgV9CGZUHCBYHSbV/view?usp=sharing
+- テーブル定義書  https://docs.google.com/spreadsheets/d/1lMR4VCtqyLmnq_2PAMl-BW5aTnAdNgAV/edit#gid=1613996619
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1bIQnwA5uEXGdjTAiUuRy10iLJlMC4aPh7b9RzUuNdng/edit?usp=sharing
