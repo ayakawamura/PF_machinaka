@@ -1,0 +1,86 @@
+<header class="sticky-top" style="height:100px;">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+
+      <div><%= link_to "まちなからいと", root_path, class: "navbar-brand text-dark" %></div>
+
+      <!--naviボタン-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!--ボタンの中-->
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="ml-auto">
+          <ul class="navbar-nav">
+
+            <% if user_signed_in? %>
+              <li class="ml-auto">
+                <%= link_to timeline_path ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>timeline</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to new_post_path, class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>post</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to posts_path,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>index</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to users_path,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>users</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to user_path(current_user.id),class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>mypage</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to destroy_user_session_path, method: :delete ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>logout</span>
+                <%end%>
+              </li>
+
+            <% else %>
+
+              <li class="ml-auto">
+                <%= link_to homes_about_path ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>about</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to posts_path ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>index</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to users_path ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>users</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to new_user_session_path ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>login</span>
+                <%end%>
+              </li>
+              <li class="ml-auto">
+                <%= link_to new_user_registration_path ,class:"nav-link text-dark border border-white rounded m-1 p-1" do %>
+                  <span>signup</span>
+                <%end%>
+              </li>
+
+
+            <% end %>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>

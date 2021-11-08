@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'searches/user_search'
   get 'searches/tag_search'
   get 'homes/about'
+  get 'timeline' => 'posts#timeline'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

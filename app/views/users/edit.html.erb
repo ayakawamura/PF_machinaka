@@ -1,0 +1,25 @@
+<h2>edit</h2>
+
+<%= form_with model: @user,url: user_path(current_user.id), local: true do |f| %>
+
+  <div class="field">
+    <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"50x50"%><br/>
+    <%= f.label :icon %><br />
+    <%= f.attachment_field :icon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, '紹介文' %><br />
+    <%= f.text_area :introduction %>
+  </div>
+
+  <div class="field">
+    <%= f.submit 'update' %>
+  </div>
+
+<%end%>
