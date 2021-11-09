@@ -1,0 +1,23 @@
+<h2>新規投稿</h2>
+
+<%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :post_images_images, "写真選択" %><br />
+    <%= f.attachment_field :post_images_images, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, '撮影場所' %><br />
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, autofocus: true %>
+  </div>
+  
+  <span><%= link_to "back", posts_path %><span>
+  <span class="text-right"><%= f.submit 'post!' %></span>
+
+<%end%>

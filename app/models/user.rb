@@ -15,4 +15,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   attachment :icon
+  
+  
+  
 end

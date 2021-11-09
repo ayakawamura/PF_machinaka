@@ -1,0 +1,14 @@
+<div class="row">
+  <% @post.post_images.each do |image| %>
+    <%= attachment_image_tag image, size: "200x200"%>
+  <% end %>
+</div>
+
+<div class="row">
+  <%= attachment_image_tag @user, :icon, :fill, 100, 100, fallback: "no_image.png",size:"100x100" %>
+  <%= @user.name %>
+  <%= @post.body %>
+  
+  <%= link_to ">>edit", edit_post_path(@post) %>
+  <%= link_to ">>delete", post_path(@post), method: :delete %>
+</div>

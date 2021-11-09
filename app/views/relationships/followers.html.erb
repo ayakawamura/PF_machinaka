@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-3">
-    <h2>All Users</h2>
+    <h2>Followings</h2>
+    <p><%= link_to "All Users", users_path %></p>
     <p><%= link_to "followings", user_followings_path(current_user) %></p>
-    <p><%= link_to "followers", user_followers_path(current_user)  %></p>
   </div>
 
   <div class="col-md-8 offset-1">
-    <%= render "user_index", users:@users %>
+    <%= render "users/user_index", users:@users %>
   </div>
 
 </div>
