@@ -1,7 +1,5 @@
 class PostCommentsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :ensure_correct_user
-
 
   def create
     post = Post.find(params[:post_id])
@@ -12,7 +10,10 @@ class PostCommentsController < ApplicationController
   end
 
   def destroy
-    PostComment.find_by(id: params[:id]).destroy
+    post_comment = PostComment.find_by(id: params[:id])
+    if post_comment.user_id == current_user.id
+      post_comment.destroy
+    end
     redirect_to request.referer
   end
 

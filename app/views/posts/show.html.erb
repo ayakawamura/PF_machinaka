@@ -53,7 +53,9 @@
         <%= attachment_image_tag comment.user, :icon, :fill, 30, 30, fallback: "no_image.png",size:"30x30" %>
         <%= "#{comment.user.name}:" %>
         <%= comment.comment %>
-        <%= link_to "delete.", post_post_comment_path(@post.id,comment.id), method: :delete %>
+        <% if comment.user == current_user %>
+          <p class="text-right"><%= link_to "delete.", post_post_comment_path(@post.id,comment.id), method: :delete %></p>
+        <%end%>
       </div>
     <% end %>
   </div>
