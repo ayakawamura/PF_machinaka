@@ -64,7 +64,7 @@ Post.create!(
   ]
 )
 
-# PostImage.create!(
-#   post_id: 1,
-#   image: File.open('./app/assets/images/park1.jpg')
-# )
+PostImage.create!(
+  post_id: 1,
+  image: File.open('./app/assets/images/park1.jpg')
+)

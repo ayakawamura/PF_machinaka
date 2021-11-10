@@ -1,10 +1,12 @@
 <% posts.each do |post| %>
-  
-  <div class="col-md-4">
-    <% post.post_images.first(1).each do |image| %>
-      <%= attachment_image_tag image, size: "200x200"%>
-    <% end %>
+
+  <div class="col-md-4 mr-auto">
+    <%=link_to post_path(post) do %>
+      <% post.post_images.first(1).each do |image| %>
+        <%= attachment_image_tag image, :image, size: "200x200"%>
+      <% end %>
+    <% end %><br/>
     <%=link_to post_path(post) do %><%= post.body %><%end%>
   </div>
-  
+
 <% end %>
