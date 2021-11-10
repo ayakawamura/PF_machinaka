@@ -8,4 +8,9 @@ class Post < ApplicationRecord
   accepts_attachments_for :post_images, attachment: :image
   
   validates :body, presence: true
+  
+  # いいね確認メソッド
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 end

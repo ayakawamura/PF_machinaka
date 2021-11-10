@@ -15,7 +15,56 @@
 # end
 
 User.create!(
-  name: 'hanako',
-  email: 'test@test.com',
-  password: '111111'
-  )
+  [
+    {
+      name: 'HANAKO',
+      email: 'hanako@test.com',
+      password: '111111'
+    },
+    {
+      name: 'TARO',
+      email: 'taro@test.com',
+      password: '111111'
+    },
+    {
+      name: 'AKARI',
+      email: 'akari@test.com',
+      password: '111111'
+    },
+    {
+      name: 'JIRO',
+      email: 'jiro@test.com',
+      password: '111111'
+    }
+  ]
+)
+
+Post.create!(
+  [
+    {
+      user_id: 1,
+      body: "近所の教会です。夜のライトアップが綺麗。"
+    },
+    {
+      user_id: 1,
+      body: "中之島公園。最近よく行きます。"
+    },
+    {
+      user_id: 1,
+      body: "淀屋橋の橋の上。夜のライトアップが綺麗でした。"
+    },
+    {
+      user_id: 2,
+      body: "先日納品したシャンデリアです。ホテル用に特注。"
+    },
+    {
+      user_id: 3,
+      body: "カフェの照明。ペンダントが可愛い。"
+    },
+  ]
+)
+
+# PostImage.create!(
+#   post_id: 1,
+#   image: File.open('./app/assets/images/park1.jpg')
+# )
