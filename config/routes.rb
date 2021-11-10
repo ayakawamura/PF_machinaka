@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_comments, only:[:create,:destroy]
     resource :favorites, only:[:create,:destroy]
-    get 'favorites' => 'favorites#index'
   end
   
+  get 'favorites' => 'favorites#index'
   get 'searches/user_search'
   get 'searches/tag_search'
   get 'homes/about'

@@ -16,6 +16,9 @@ class FavoritesController < ApplicationController
   end
 
   def index
+    # current_userのお気に入りのpost_idカラムを取得
+    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id) 
+    @all_favorites = Post.find(favorites)
   end
 
 
