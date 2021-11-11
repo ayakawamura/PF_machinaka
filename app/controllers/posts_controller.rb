@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :ensure_correct_user,only:[:edit,:update]
+  before_action :ensure_correct_user,only:[:edit,:update,:destroy]
 
   def new
     @post = Post.new
@@ -29,8 +29,21 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post)
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+     redirect_to request.referer
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(current_user)
   end
 
   def timeline
