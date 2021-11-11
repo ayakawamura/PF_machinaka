@@ -18,11 +18,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
 
   def show
     @post = Post.find(params[:id])
+    @post_comments = @post.post_comments.includes(:user)
     @user = @post.user
     @post_comment = PostComment.new
   end
