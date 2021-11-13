@@ -6,12 +6,14 @@
         <%= attachment_image_tag image, :image, size: "200x200"%>
       <% end %>
     <% end %><br/>
-    
     <%=link_to post_path(post) do %><%= post.body %><%end%>
-    
+    <%= post.tags.map(&:name).join(', ') %>
+
+    <% if user_signed_in? %>
     <div id="post_<%= post.id %>">
       <%= render "favorites/iine", post: post %>
     </div>
+    <%end%>
   </div>
 
 <% end %>

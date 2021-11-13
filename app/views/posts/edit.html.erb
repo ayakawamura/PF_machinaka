@@ -3,20 +3,25 @@
 <%= form_with model: @post, local: true do |f| %>
 
   <div class="field">
-    <%= f.label :post_images_images, "写真選択" %><br />
+    <%= f.label :post_images_images, "写真選択" %>
     <%= f.attachment_field :post_images_images, multiple: true %>
   </div>
 
   <div class="field">
-    <%= f.label :address, '撮影場所' %><br />
+    <%= f.label :address, '撮影場所' %>
     <%= f.text_field :address %>
   </div>
   
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body %>
     <%= f.text_area :body, autofocus: true %>
   </div>
   
+  <div class="field">
+    <%= f.label :tag %>
+    <%= f.text_field :tag, value: @tag_list, placeholder:"タグを複数つけるには' , 'で区切ってください" %>
+  </div>
+
   <span><%= link_to "back", post_path(@post) %><span>
   <span class="text-right"><%= f.submit 'update!' %></span>
 

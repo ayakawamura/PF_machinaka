@@ -1,6 +1,66 @@
 <h2>Index</h2>
-<div class="row">
-</div>
+<!--検索フォーム-->
+<input id="address" type="textbox" value="大阪">
+<input type="button" value="検索" onclick="codeAddress()">
+<div id="display">何かが表示される、、、、！</div>
+<div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 600px;
+}
+</style>
+
+<script>
+let map
+let geocoder
+
+const display = document.getElementById('display')
+
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    //  初期位置
+    center: {lat: 34.7055051, lng:135.4983028},
+    zoom: 10,
+  });
+
+  // 投稿のマーカーをまとめて表示
+
+    marker = new google.maps.Marker({
+      // 座標にピンを立てる
+      position: {lat: 34.7055051, lng:135.4983028},
+      map: map
+    });
+
+};
+
+
+
+// 検索ボタンで実行
+function codeAddress(){
+  // フォームの入力内容を取得
+  let inputAddress = document.getElementById('address').value;
+  // geocodingしたあとmapを移動
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    // 該当する住所があれば検索結果の住所を地図の中心に表示する
+    if (status == 'OK') {
+      // 該当する住所があればmap.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+
+      display.textContent = "検索結果：" + results[ 0 ].geometry.location
+    } else {
+      alert('該当する結果がありませんでした：' + status);
+    }
+  });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+
 
 <div class="row">
   <%= render "post_index", posts: @posts %>

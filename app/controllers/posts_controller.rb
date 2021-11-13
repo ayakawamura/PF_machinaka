@@ -10,7 +10,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    # 投稿ページからタグを取得
+    tag_list = params[:post][:tag].split(",")
     if @post.save
+      @post.save_tags(tag_list)
       redirect_to post_path(@post), notice: '投稿しました'
     else
       render :new
@@ -30,14 +33,17 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:name).join(",")
   end
 
   def update
     @post = Post.find(params[:id])
+    tag_list = params[:post][:tag].split(",")
     if @post.update(post_params)
-      redirect_to post_path(@post)
+      @post.save_tags(tag_list)
+      redirect_to post_path(@post), notice: '更新しました'
     else
-     redirect_to request.referer
+      redirect_to request.referer
     end
   end
 
@@ -54,7 +60,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:body, :address, post_images_images:[] )
+    params.require(:post).permit(:body, :address, :latitude, :longitude, post_images_images:[] )
   end
 
   def ensure_correct_user
