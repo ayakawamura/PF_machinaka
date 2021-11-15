@@ -21,9 +21,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    # いいね順に並び替え
+    # いいね順が多いに並び替え
     @posts = Post.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    gon.posts = Post.all
+    @tags = Tag.all
   end
 
   def show

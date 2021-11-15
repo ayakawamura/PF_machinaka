@@ -1,7 +1,7 @@
 <h2>Index</h2>
 
 <div class="row">
-  <%= render "post_index", posts: @posts %>
+  <%= render "post_index", posts: @posts, tags: @tags %>
 </div>
 
 <!--検索フォーム-->
@@ -39,7 +39,7 @@
             map: map,
             title: contentString
         });
-        
+
       })();
     <% end %>
     }

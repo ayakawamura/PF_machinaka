@@ -4,12 +4,16 @@ class SearchesController < ApplicationController
     @users = User.looks(params[:word])
     @word = params[:word]
   end
+  
+  def post_search
+    @posts = Post.looks(params[:word])
+    @word = params[:word]
+    @tags = Tag.all
+  end
 
   def tag_search
-    tag = Tag.where(name: params[:word])
-    tag_relationship = TagRelationship.where(tag_id: tag)
-    @posts = Post.where(id: tag_relationship.post.id)
-    @word = params[:word]
-
+    @tags = Tag.all
+    @tag=Tag.find(params[:tag_id])
+    @posts=@tag.posts.page(params[:page]).per(10)
   end
 end

@@ -13,9 +13,14 @@ Rails.application.routes.draw do
     resource :favorites, only:[:create,:destroy]
   end
 
+  resources :tags, only:[:index] do
+    get 'search' => 'searches#tag_search'
+  end
+
   get 'favorites' => 'favorites#index'
   get 'user_search' => 'searches#user_search'
-  get 'tag_search' => 'searches#tag_search'
+  get 'post_search' => 'searches#post_search'
+
   get 'homes/about'
   get 'timeline' => 'posts#timeline'
 

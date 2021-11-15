@@ -30,14 +30,24 @@ class Post < ApplicationRecord
 
     #古いタグを削除
     old_tags.each do |old_tag|
-      self.tags.delete(Tag.find_by(name: old_tag))
+      self.tags.delete Tag.find_by(name: old_tag)
     end
 
+    #新しいタグを追加
     new_tags.each do |new_tag|
       # 指定した値があれば取得、なければ作成する
       add_tag = Tag.find_or_create_by(name: new_tag)
       # 新しいタグを追加する
       self.tags << add_tag
+    end
+  end
+
+  # 投稿検索
+  def self.looks(word)
+    if word != ""
+      Post.where("body LIKE(?) OR address LIKE(?)","%#{word}%","%#{word}%")
+    else
+      Post.all
     end
   end
 
