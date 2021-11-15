@@ -43,21 +43,21 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag].split(",")
     if @post.update(post_params)
       @post.save_tags(tag_list)
-      redirect_to post_path(@post), notice: '更新しました'
+      redirect_to post_path(@post), notice: '投稿を更新しました'
     else
-      redirect_to request.referer
+      render :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to user_path(current_user)
+    redirect_to user_path(current_user), notice: '投稿を削除しました'
   end
 
   def timeline
     @users = current_user.followings
-    @posts = Post.where(user_id: @users)
+    @posts = Post.where(user_id: @users).order('created_at DESC')
   end
 
   private

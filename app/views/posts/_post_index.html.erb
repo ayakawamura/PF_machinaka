@@ -1,13 +1,3 @@
-<div class="my-5">
-  <p>タグで探す</p>
-  <% tags.each do |tag| %>
-    <span class="pr-1">
-      <%= link_to tag.name, tag_search_path(tag_id: tag.id) %><%="(#{tag.posts.count}), " %>
-    </span>
-  <%end%>
-</div>
-
-
 <% posts.each do |post| %>
 
   <div class="col-md-4 mr-auto">

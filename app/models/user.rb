@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   validates :name, presence: true, uniqueness: true
+  validates :introduction, length: {maximum:20}
   attachment :icon
 
   # フォローメソッド

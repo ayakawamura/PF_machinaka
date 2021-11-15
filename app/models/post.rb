@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  validates :body, presence: true
+  validates :body, presence: true, length: {minimum: 2,maximum:300}
 
   # いいね確認メソッド
   def favorited_by?(user)

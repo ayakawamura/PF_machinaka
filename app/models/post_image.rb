@@ -1,6 +1,6 @@
 class PostImage < ApplicationRecord
   belongs_to :post
-  
-  # validates :image_id, presence: true
+
+  # image_idは投稿後に作成されるのでvalidatesしない
   attachment :image
 end

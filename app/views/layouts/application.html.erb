@@ -4,7 +4,7 @@
     <title>PfMachinaka</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,12 +12,16 @@
 
   <body>
     <%= render "layouts/header" %>
-    
+
     <div class = "container">
-      <p id="notice"><%= notice %></p>
-      <p id="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="text-success"><%= notice %></p>
+      <% elsif alert %>
+        <p class="text-danger"><%= alert %></p>
+      <%end%>
+
       <%= yield %>
     </div>
-    
+
   </body>
 </html>

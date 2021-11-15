@@ -31,7 +31,7 @@
       <% if @user.id == current_user.id %>
         <div class="text-right">
           <%= link_to ">>edit  ", edit_post_path(@post) %><br/>
-          <%= link_to ">>delete", post_path(@post), method: :delete %>
+          <%= link_to ">>delete", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"} %>
         </div>
       <% end %>
     <% end %>
