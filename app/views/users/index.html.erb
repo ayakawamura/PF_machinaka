@@ -11,6 +11,11 @@
 
   <div class="col-md-8 offset-1">
     <%= render "user_index", users:@users %>
+
+    <div class="ml-auto mt-5">
+      <%= paginate(@users) %>
+    </div>
+
   </div>
 
 </div>

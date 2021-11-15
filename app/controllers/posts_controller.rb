@@ -22,7 +22,9 @@ class PostsController < ApplicationController
 
   def index
     # いいね順が多いに並び替え
-    @posts = Post.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    posts = Post.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    # pagination使用
+    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(9)
     @tags = Tag.all
   end
 
