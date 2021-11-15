@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -13,8 +14,9 @@
     <%= render "layouts/header" %>
     
     <div class = "container">
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
       <%= yield %>
-      
     </div>
     
   </body>

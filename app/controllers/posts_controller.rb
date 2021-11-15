@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # 投稿ページからタグを取得
+    # 投稿ページからタグを取得、,で区切って配列にする
     tag_list = params[:post][:tag].split(",")
     if @post.save
       @post.save_tags(tag_list)
@@ -21,7 +21,9 @@ class PostsController < ApplicationController
   end
 
   def index
+    # いいね順に並び替え
     @posts = Post.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    gon.posts = Post.all
   end
 
   def show

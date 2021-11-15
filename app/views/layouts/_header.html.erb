@@ -3,6 +3,10 @@
     <div class="container">
 
       <div><%= link_to "まちなからいと", root_path, class: "navbar-brand text-dark" %></div>
+      <div class="ml-auto">
+        <%= render "searches/form_tag_search" %>
+      </div>
+
 
       <!--naviボタン-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +54,7 @@
                   <span>logout</span>
                 <%end%>
               </li>
+
 
             <% else %>
 
