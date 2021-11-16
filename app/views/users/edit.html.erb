@@ -1,28 +1,38 @@
-<h2>edit</h2>
+<div class = "container">
 
-<%= render "layouts/error", model: @user %>
+  <div class="row">
+    <div class="col-md-7 mx-auto p-5">
+      <h2>EDIT PLOFILE</h2>
 
-<%= form_with model: @user,url: user_path(current_user.id), local: true do |f| %>
+      <%= render "layouts/error", model: @user %>
 
-  <div class="field">
-    <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"50x50"%><br/>
-    <%= f.label :icon %><br />
-    <%= f.attachment_field :icon %>
+      <%= form_with model: @user,url: user_path(current_user.id), local: true do |f| %>
+
+        <div class="mt-5">
+          <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60", class:"image-circle"%>
+          <%= f.label :icon ,"アイコン"%><br />
+          <%= f.attachment_field :icon %>
+        </div>
+
+        <div class="mt-4">
+          <%= f.label :name ,"名前" %><br />
+          <%= f.text_field :name, autofocus: true ,class:"form-control"%>
+        </div>
+
+        <div class="mt-4">
+          <%= f.label :introduction, '紹介文' %><br />
+          <%= f.text_area :introduction ,class:"form-control"%>
+        </div>
+
+        <div class="text-center mt-5">
+          <%= f.submit 'update' ,class:"btn" %>
+        </div>
+        <div class="text-center mt-5">
+          <%= link_to "back", user_path(@user) ,class:"back"%>
+        </div>
+
+      <%end%>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :introduction, '紹介文' %><br />
-    <%= f.text_area :introduction %>
-  </div>
-  
-  <span><%= link_to "back", user_path(@user) %><span>
-  <div class="field">
-    <%= f.submit 'update' %>
-  </div>
-
-<%end%>
+</div>

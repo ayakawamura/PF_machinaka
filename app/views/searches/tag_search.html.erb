@@ -1,6 +1,5 @@
-<h2>search for '<%= @tag.name %>'</h2>
 
-<div class="my-5">
+<div class="tag-list">
   <p>タグで探す</p>
   <% @tags.each do |tag| %>
     <span class="pr-1">
@@ -8,6 +7,9 @@
     </span>
   <%end%>
 </div>
+
+<h2>Search results'<%= @tag.name %>'</h2>
+
 
 <div class="row">
     <%= render "posts/post_index", posts: @posts %>

@@ -21,6 +21,7 @@
 //= require turbolinks
 //= require_tree .
 
+// トップページ、メイン画像
 $(document).ready(function () {
   $("#images").skippr({
     // スライドショーの変化 ("fade" or "slide")
@@ -34,7 +35,7 @@ $(document).ready(function () {
     // 子要素の種類('div' or 'img')
     childrenElementType : 'div',
     // ナビゲーション矢印の表示(trueで表示)
-    arrows : true,
+    arrows : false,
     // スライドショーの自動再生(falseで自動再生なし)
     autoPlay : true,
     // 自動再生時のスライド切替間隔(ミリ秒)
@@ -46,12 +47,21 @@ $(document).ready(function () {
   });
 });
 
-
+// arrowアイコン
 $(function() {
   $('#arrow a').on('click',function(event){
     $('body, html').animate({
       scrollTop:0
     }, 800);
+    event.preventDefault();
+  });
+});
+
+// ハンバーガーmenu
+$(function() {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
     event.preventDefault();
   });
 });

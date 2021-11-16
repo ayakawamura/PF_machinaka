@@ -10,10 +10,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background: #edeae1;">
     <%= render "layouts/header" %>
 
-    <div class = "container">
       <% if notice %>
         <p class="text-success"><%= notice %></p>
       <% elsif alert %>
@@ -27,8 +26,6 @@
           <%= image_tag asset_path("arrow2.png"), class:"arrow-img" %>
         </a>
       </span>
-
-    </div>
 
   </body>
 </html>

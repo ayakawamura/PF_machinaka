@@ -1,6 +1,5 @@
-<h2>Index</h2>
-
-<div class="my-5">
+<div class="container">
+<div class="tag-list">
   <p>タグで探す</p>
   <% @tags.each do |tag| %>
     <span class="pr-1">
@@ -8,6 +7,8 @@
     </span>
   <%end%>
 </div>
+
+<h2>All POSTS</h2>
 
 <div class="row">
   <%= render "post_index", posts: @posts %>
@@ -17,11 +18,15 @@
   <%= paginate(@posts) %>
 </div>
 
+
 <!--検索フォーム-->
 <input id="address" type="textbox" value="大阪">
 <input type="button" value="検索" onclick="codeAddress()">
 
 <div id='map'></div>
+
+</div>
+
 
 <style>
 #map {
@@ -72,4 +77,3 @@
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
-

@@ -1,30 +1,42 @@
-<h2>投稿編集</h2>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-7 mx-auto p-5">
 
-<%= render "layouts/error", model: @post %>
+      <h2>投稿編集</h2>
+      
+      <%= render "layouts/error", model: @post %>
+      
+      <%= form_with model: @post, local: true do |f| %>
+      
+        <div class="mt-5">
+          <%= f.label :post_images_images, "写真選択" %><br/>
+          <%= f.attachment_field :post_images_images, multiple: true %>
+        </div>
 
-<%= form_with model: @post, local: true do |f| %>
+        <div class="mt-4">
+          <%= f.label :address, '撮影場所' %>
+          <%= f.text_field :address ,class:"form-control"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :post_images_images, "写真選択" %>
-    <%= f.attachment_field :post_images_images, multiple: true %>
+        <div class="mt-4">
+          <%= f.label :body ,"投稿文"%>
+          <%= f.text_area :body, class:"form-control"%>
+        </div>
+
+        <div class="mt-4">
+                <%= f.label :tag ,"タグ"%>
+          <%= f.text_field :tag, value: @tag_list, placeholder:"タグを複数つけるには' , 'で区切ってください" ,class:"form-control"%>
+        </div>
+
+        <div class="text-center mt-5">
+          <%= f.submit 'update!' ,class:"btn"%>
+        </div>
+        
+        <div class="text-center mt-5">
+          <%= link_to "back", posts_path ,class:"back"%>
+        </dic>
+
+      <%end%>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :address, '撮影場所' %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tag %>
-    <%= f.text_field :tag, value: @tag_list, placeholder:"タグを複数つけるには' , 'で区切ってください" %>
-  </div>
-
-  <span><%= link_to "back", post_path(@post) %><span>
-  <span class="text-right"><%= f.submit 'update!' %></span>
-
-<%end%>
+</div>
