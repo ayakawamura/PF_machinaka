@@ -1,13 +1,15 @@
+<div class="box" style="background: #edeae1;">
+
 <div class = "container">
   <div class="row">
     <div class="col-md-7 mx-auto p-5">
 
       <h2>投稿編集</h2>
-      
+
       <%= render "layouts/error", model: @post %>
-      
+
       <%= form_with model: @post, local: true do |f| %>
-      
+
         <div class="mt-5">
           <%= f.label :post_images_images, "写真選択" %><br/>
           <%= f.attachment_field :post_images_images, multiple: true %>
@@ -29,9 +31,9 @@
         </div>
 
         <div class="text-center mt-5">
-          <%= f.submit 'update!' ,class:"btn"%>
+          <%= f.submit 'update!' ,class:"submit"%>
         </div>
-        
+
         <div class="text-center mt-5">
           <%= link_to "back", posts_path ,class:"back"%>
         </dic>
@@ -39,4 +41,5 @@
       <%end%>
     </div>
   </div>
+</div>
 </div>

@@ -1,11 +1,9 @@
-<header class="sticky-top" style="height:100px;">
+<!--fixed-top で背景なし　sticky-topではけいあり-->
+<header class="fixed-top" style="height:100px;">
   <nav class="navbar navbar-light">
     <div class="container">
 
       <div><%= link_to "まちなからいと", root_path, class: "navbar-brand text-dark" %></div>
-      <div class="ml-auto">
-        <%= render "searches/form_post_search" %>
-      </div>
 
 
       <div id="sp-menu">
@@ -49,6 +47,7 @@
               <%= link_to new_user_registration_path do %><span>signup</span><%end%>
             </li>
           <% end %>
+          <%= render "searches/form_post_search" %>
         </ul>
       </div>
 

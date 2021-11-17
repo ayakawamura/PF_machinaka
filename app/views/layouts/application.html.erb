@@ -6,26 +6,27 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background: #edeae1;">
+  <body>
     <%= render "layouts/header" %>
 
-      <% if notice %>
-        <p class="text-success"><%= notice %></p>
-      <% elsif alert %>
-        <p class="text-danger"><%= alert %></p>
-      <%end%>
+    <% if notice %>
+      <p class="text-success"><%= notice %></p>
+    <% elsif alert %>
+      <p class="text-danger"><%= alert %></p>
+    <%end%>
 
-      <%= yield %>
+    <%= yield %>
 
-      <span id="arrow">
-        <a href="#">
-          <%= image_tag asset_path("arrow2.png"), class:"arrow-img" %>
-        </a>
-      </span>
+    <span id="arrow">
+      <a href="#">
+        <%= image_tag asset_path("arrow2.png"), class:"arrow-img" %>
+      </a>
+    </span>
+
+    <%= render "layouts/footer" %>
 
   </body>
 </html>
