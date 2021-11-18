@@ -26,7 +26,7 @@
 - 建物のオーナーと照明の設計担当が打ち合わせを行う時
 
 ## 設計書
-- ワイヤーフレーム  
+- ワイヤーフレーム
 - ER図  https://drive.google.com/file/d/1-EzkoA0zb4gkHmPzXgV9CGZUHCBYHSbV/view?usp=sharing
 - テーブル定義書  https://docs.google.com/spreadsheets/d/1lMR4VCtqyLmnq_2PAMl-BW5aTnAdNgAV/edit#gid=1613996619
 
@@ -41,6 +41,7 @@ https://docs.google.com/spreadsheets/d/1bIQnwA5uEXGdjTAiUuRy10iLJlMC4aPh7b9RzUuN
 - IDE：Cloud9
 
 ## 使用素材
-- pixoboy  https://pixabay.com/ja/
+- pixoboy    https://pixabay.com/ja/
 - Font Free  https://fontfree.me/
 - designevo  https://www.designevo.com/
+- ICON BOX   https://iconbox.fun/
