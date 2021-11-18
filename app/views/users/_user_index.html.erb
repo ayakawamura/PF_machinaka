@@ -1,10 +1,33 @@
-<% if users.empty? %>
-  <p>User not found</p>
-<% else %>
-<% users.each do |user| %>
-  <%= link_to user_path(user) do %>
-    <%= attachment_image_tag user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"50x50" %>
-    <%= user.name %>
-  <%end%>
-<%end%>
-<% end %>
+<div class="row">
+
+  <% if users.empty? %>
+    <p class="col mx-auto text-center font-weight-bold">User not found</p>
+  <% else %>
+
+    <% users.each do |user| %>
+      <div id="user-card" class="card col-md-5 mx-auto mb-3">
+
+        <%= link_to user_path(user) do %>
+         <div class="row no-gutters">
+          <div class="col-md-4">
+            <%= attachment_image_tag user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"50x50" %>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= user.name %></h5>
+              <p class="card-text">投稿数：<%= user.posts.count %></p>
+            </div>
+          </div>
+        </div>
+        <%end%>
+
+      </div>
+    <%end%>
+
+  <% end %>
+</div>
+
+<div class="ml-auto mt-5">
+  <%= paginate(users) %>
+</div>

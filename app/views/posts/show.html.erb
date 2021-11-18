@@ -6,7 +6,7 @@
       <div class="col-lg-7" style="height:500px;">
         <div id="show-images">
           <% @post.post_images.each do |image| %>
-            <%= attachment_image_tag image, :image ,class:"img-responsive"%>
+            <%= attachment_image_tag image, :image ,class:"img-fluid"%>
           <% end %>
         </div>
 
@@ -71,7 +71,7 @@
 
         var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
+            zoom: 10,
             center: test
         });
         var transitLayer = new google.maps.TransitLayer();

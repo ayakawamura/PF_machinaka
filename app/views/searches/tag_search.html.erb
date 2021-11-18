@@ -10,12 +10,10 @@
   <%end%>
 </div>
 
-<h2>Search results'<%= @tag.name %>'</h2>
+<h2><i class="fas fa-hashtag"></i>'<%= @tag.name %>'</h2>
 
 
-<div class="row">
-    <%= render "posts/post_index", posts: @posts %>
-</div>
+<%= render "posts/post_index", posts: @posts %>
 
 </div>
 </div>

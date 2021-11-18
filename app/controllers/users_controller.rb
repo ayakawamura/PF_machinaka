@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user,only:[:edit,:update]
 
   def index
-    @users = User.page(params[:page]).per(3)
+    @users = User.page(params[:page]).per(10)
     @user = current_user
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(10)
   end
 
   def edit

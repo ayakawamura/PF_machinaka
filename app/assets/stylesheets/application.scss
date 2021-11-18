@@ -37,65 +37,34 @@
 
 h2{
   text-align: center;
-  border-bottom: 1px solod #6c6b6b;
+  margin: 100px auto 50px;
+  border-bottom: 3px solid #6c6b6b;
+  width: 300px;
 }
 
-
-.pagination {
-  justify-content: center;
-}
 
 .pagination{
+  justify-content: center;
+
   li{
-   a {
-  border: none;
-  color: #696969;
-   }
+    a {
+      border: none;
+      color: #6c6b6b;
+    }
+    a:hover {
+      border-radius: 5px;
+      color: #6c6b6b;
+    }
+  }
+
+  .active>.page-link{
+    background: #6c6b6b;
+    border-radius: 5px;
   }
 }
 
-.pagination>.active>a {
-  background: #93c9ff;
-  border-radius: 5px;
-}
 
-.pagination>li>a:hover {
-  border-radius: 5px;
-}
-
-// topページメイン画像
-#top{
- height: 500px;
- width: 90%;
-}
-.top1{
- background-image: url(top1.jpg);
-}
-
-.top2{
- background-image: url(top2.jpg);
-}
-
-.top3{
- background-image: url(top3.jpg);
-}
-
-.top4{
- background-image: url(top4.jpg);
-}
-
-.top5{
- background-image: url(top5.jpg);
-}
-
-#show{
-  width: 80%;
-  height: 500px;
-}
-.show-image{
-  background-size: cover;
-}
-
+// pagetopへ戻る
 #arrow {
   position: fixed;
   right: 20px;
@@ -180,18 +149,7 @@ h2{
   font-size: 20px
 }
 
-// タグ一覧
-.tag-list{
-  background: #edeae1;
-  border-radius: 1rem;
-  margin: 20px 0 20px 0;
-  padding: 30px;
-}
-
-.tag-list a{
-  color: #6c6b6b
-}
-
+// 投稿、ログインボタン
 .submit{
   width: 40%;
   padding: 10px;

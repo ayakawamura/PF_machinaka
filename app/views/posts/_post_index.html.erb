@@ -1,25 +1,35 @@
-<% unless @posts.present? %>
+<% unless posts.present? %>
   <p>投稿がありません</p>
 <% else %>
 
+<div class="row">
+
   <% posts.each do |post| %>
-  
-    <div class="col-md-4">
+
+    <div class="col-md-4 mt-3 mx-auto">
       <%=link_to post_path(post) do %>
         <% post.post_images.first(1).each do |image| %>
-          <%= attachment_image_tag image, :image, class:"image-responsive", size: "300x200"%>
+          <%= attachment_image_tag image, :image, class:"img-fluid rounded"%>
         <% end %>
       <% end %><br/>
-      
-      <%=link_to post_path(post) do %><%= post.body %><%end%>
-      <%= post.tags.map(&:name).join(', ') %>
-  
-      <% if user_signed_in? %>
-      <div id="post_<%= post.id %>">
-        <%= render "favorites/iine", post: post %>
+
+      <div class="row mx-1">
+        <p class="col-10"><i class="fas fa-hashtag"></i><%= post.tags.map(&:name).join(', ') %></p>
+
+        <% if user_signed_in? %>
+          <p  id="post_<%= post.id %>" class="col-1">
+            <%= render "favorites/iine", post: post %>
+          </p>
+        <%end%>
       </div>
-      <%end%>
+
     </div>
-  
+
   <% end %>
+</div>
+
+  <div class="my-5 ml-auto">
+    <%= paginate(posts) %>
+  </div>
+
 <% end %>

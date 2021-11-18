@@ -1,3 +1,18 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// タグ一覧
+.tag-list{
+  background: #edeae1;
+  border-radius: 1rem;
+  margin: 20px 0 20px 0;
+  padding: 30px;
+
+  a{
+    color: #6c6b6b
+  }
+  p{
+    font-weight: bold;
+  }
+}

@@ -8,3 +8,24 @@
 //   padding-top: 20px;
 //   text-align: center;
 // }
+
+// topページメイン画像
+#top{
+  height: 500px;
+  width: 90%;
+  .top1{
+   background-image: url(top1.jpg);
+  }
+  .top2{
+   background-image: url(top2.jpg);
+  }
+  .top3{
+   background-image: url(top3.jpg);
+  }
+  .top4{
+   background-image: url(top4.jpg);
+  }
+  .top5{
+   background-image: url(top5.jpg);
+  }
+}

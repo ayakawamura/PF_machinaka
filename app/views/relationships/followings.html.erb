@@ -1,15 +1,10 @@
 <div class="box" style="background: #edeae1;">
   <div class = "container">
 
-<div class="row">
-  <div class="col-md-3">
     <h2>Followings</h2>
-  </div>
 
-  <div class="col-md-8 offset-1">
+    <%= render "searches/form_user_search" %>
     <%= render "users/user_index", users: @users %>
-  </div>
 
-</div>
-</div>
+  </div>
 </div>
