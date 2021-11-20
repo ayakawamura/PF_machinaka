@@ -1,14 +1,12 @@
 <div class="box" style="background: #edeae1;">
   <div class = "container">
 
-<h2>timeline</h2>
+    <h2>timeline</h2>
+    
+    <%= render "post_index", posts: @posts %>
+    <div class="my-5 ml-auto">
+      <%= paginate(@posts) %>
+    </div>
 
-<div class="row">
-</div>
-
-<div class="row">
-  <%= render "post_index", posts:@posts %>
-</div>
-
-</div>
+  </div>
 </div>

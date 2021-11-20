@@ -1,19 +1,22 @@
 <div class="box" style="background: #edeae1;">
   <div class = "container">
 
-<div class="tag-list">
-  <p>タグで探す</p>
-  <% @tags.each do |tag| %>
-    <span class="pr-1">
-      <%= link_to tag.name, tag_search_path(tag_id: tag.id) %><%="(#{tag.posts.count}), " %>
-    </span>
-  <%end%>
-</div>
+    <div class="tag-list">
+      <p>タグで探す</p>
+      <% @tags.each do |tag| %>
+        <span class="pr-1">
+          <%= link_to tag.name, tag_search_path(tag_id: tag.id) %><%="(#{tag.posts.count}), " %>
+        </span>
+      <%end%>
+    </div>
+    
+    <h2><i class="fas fa-hashtag"></i>'<%= @tag.name %>'</h2>
 
-<h2><i class="fas fa-hashtag"></i>'<%= @tag.name %>'</h2>
-
-
-<%= render "posts/post_index", posts: @posts %>
-
-</div>
+    <%= render "posts/post_index", posts: @posts %>
+    <div class="my-5 ml-auto">
+      <%= paginate(@posts) %>
+    </div>
+  
+  
+  </div>
 </div>

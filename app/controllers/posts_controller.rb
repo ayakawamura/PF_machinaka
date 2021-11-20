@@ -59,7 +59,8 @@ class PostsController < ApplicationController
 
   def timeline
     @users = current_user.followings
-    @posts = Post.where(user_id: @users).order('created_at DESC')
+    posts = Post.where(user_id: @users).order('created_at DESC')
+    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(9)
   end
 
   private

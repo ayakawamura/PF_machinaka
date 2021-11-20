@@ -11,7 +11,7 @@
         <% post.post_images.first(1).each do |image| %>
           <%= attachment_image_tag image, :image, class:"img-fluid rounded"%>
         <% end %>
-      <% end %><br/>
+      <% end %>
 
       <div class="row mx-1">
         <p class="col-10"><i class="fas fa-hashtag"></i><%= post.tags.map(&:name).join(', ') %></p>
@@ -27,9 +27,5 @@
 
   <% end %>
 </div>
-
-  <div class="my-5 ml-auto">
-    <%= paginate(posts) %>
-  </div>
 
 <% end %>

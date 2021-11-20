@@ -3,8 +3,9 @@
 
     <h2>お気に入り</h2>
 
-    <div class="row">
-      <%= render "posts/post_index", posts: @all_favorites %>
+    <%= render "posts/post_index", posts: @all_favorites %>
+    <div class="my-5 ml-auto">
+      <%= paginate(@all_favorites) %>
     </div>
 
   </div>

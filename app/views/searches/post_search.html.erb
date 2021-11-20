@@ -1,10 +1,12 @@
 <div class="box" style="background: #edeae1;">
   <div class = "container">
 
+    <h2>Search results '<%= @word %>'</h2>
+  
+    <%= render "posts/post_index", posts: @posts ,tags: @tags %>
+    <div class="my-5 ml-auto">
+      <%= paginate(@posts) %>
+    </div>
 
-<h2>Search results '<%= @word %>'</h2>
-
-<%= render "posts/post_index", posts: @posts ,tags: @tags %>
-
-</div>
+  </div>
 </div>

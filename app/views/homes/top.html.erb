@@ -1,4 +1,4 @@
-<div class="box" style="background: #edeae1;">
+<div style="background: #FFF;">
 
 <div id="top">
   <div id="top-images">
@@ -9,4 +9,54 @@
     <div class="top5"></div>
   </div>
 </div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-5">
+      <p>Life × Light</p>
+      <p></p>
+      <div class="text-center"><%= link_to "about", homes_about_path, class:"top-btn"%></div>
+    </div>
+
+    <div class="col-md-5">
+      <p></p>
+    </div>
+  </div>
+
+    <h2>新着投稿</h2>
+    <%=render "posts/post_index", posts: @posts %>
+    <div class="text-center"><%= link_to "view more", posts_path, class:"top-btn"%></div>
+
+  <div class="row">
+    <div class="top-select">
+    <%= link_to new_post_path do%>
+      <%= image_tag("camera.png",size: "70x70")%>
+      <p class="mt-2">投稿する</p>
+    <%end%>
+    </div>
+
+    <div class="top-select">
+      <%= link_to posts_path do%>
+      <%= image_tag("light.png",size: "70x70")%>
+      <p class="mt-2">照明を探す</p>
+      <%end%>
+    </div>
+
+    <div class="top-select">
+      <%= link_to users_path do%>
+      <%= image_tag("user.png",size: "70x70")%>
+      <p class="mt-2">ユーザーをさがす</p>
+      <%end%>
+    </div>
+
+    <div class="top-select">
+      <%= link_to timeline_path do%>
+      <%= image_tag("timeline.png",size: "70x70")%>
+      <p class="mt-2">タイムライン</p>
+      <%end%>
+    </div>
+
+  </div>
+
 </div>
