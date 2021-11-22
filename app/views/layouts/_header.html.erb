@@ -1,16 +1,15 @@
 <!--fixed-top でヘッダー固定　sticky-topで固定なし-->
-<header class="fixed-top">
+<header>
   <div class="brand">
-    <%= link_to "まちなからいと", root_path %>
+    <%= link_to "Machinaka Light" ,root_path %>
   </div>
   <div class="social">
     <% if user_signed_in? %>
       <%= link_to user_path(current_user) do%><i class="far fa-user fa-lg"></i><%end%>
-      <%= link_to favorites_path do%><i class="far fa-heart fa-lg"></i><%end%>
     <% else %>
       <%= link_to new_user_session_path do%><i class="far fa-user fa-lg"></i><%end%>
-      <%= link_to new_user_session_path do%><i class="far fa-heart fa-lg"></i><%end%>
     <% end %>
+    <%= link_to favorites_path do%><i class="far fa-heart fa-lg"></i><%end%>
   </div>
 
   <div id="sp-menu">

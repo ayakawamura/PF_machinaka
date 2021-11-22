@@ -1,10 +1,8 @@
-<div class="box" style="background: #edeae1;">
-
 <div class = "container">
   <div class="row">
     <div class="col-md-7 mx-auto p-5">
 
-      <h2>投稿編集</h2>
+      <h2>EDIT</h2>
 
       <%= render "layouts/error", model: @post %>
 
@@ -22,7 +20,7 @@
 
         <div class="mt-4">
           <%= f.label :body ,"投稿文"%>
-          <%= f.text_area :body, class:"form-control"%>
+          <%= f.text_area :body, class:"form-control",style:"height:200px"%>
         </div>
 
         <div class="mt-4">

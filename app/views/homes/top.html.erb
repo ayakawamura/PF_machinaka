@@ -24,35 +24,35 @@
     </div>
   </div>
 
-    <h2>新着投稿</h2>
+    <h2>NEW POSTS</h2>
     <%=render "posts/post_index", posts: @posts %>
     <div class="text-center"><%= link_to "view more", posts_path, class:"top-btn"%></div>
 
-  <div class="row">
-    <div class="top-select">
+  <div class="select">
+    <div class="select-item">
     <%= link_to new_post_path do%>
-      <%= image_tag("camera.png",size: "70x70")%>
+      <%= image_tag("camera.png",size: "40x40")%>
       <p class="mt-2">投稿する</p>
     <%end%>
     </div>
 
-    <div class="top-select">
+    <div class="select-item">
       <%= link_to posts_path do%>
-      <%= image_tag("light.png",size: "70x70")%>
+      <%= image_tag("light.png",size: "40x40")%>
       <p class="mt-2">照明を探す</p>
       <%end%>
     </div>
 
-    <div class="top-select">
+    <div class="select-item">
       <%= link_to users_path do%>
-      <%= image_tag("user.png",size: "70x70")%>
-      <p class="mt-2">ユーザーをさがす</p>
+      <%= image_tag("user.png",size: "40x40")%>
+      <p class="mt-2">ユーザーを探す</p>
       <%end%>
     </div>
 
-    <div class="top-select">
+    <div class="select-item">
       <%= link_to timeline_path do%>
-      <%= image_tag("timeline.png",size: "70x70")%>
+      <%= image_tag("timeline.png",size: "40x40")%>
       <p class="mt-2">タイムライン</p>
       <%end%>
     </div>

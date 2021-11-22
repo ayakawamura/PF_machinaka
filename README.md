@@ -47,3 +47,4 @@ https://docs.google.com/spreadsheets/d/1bIQnwA5uEXGdjTAiUuRy10iLJlMC4aPh7b9RzUuN
 - ICON BOX     https://iconbox.fun/
 - ICOOON MONO  https://icooon-mono.com/
 - Font Awesome https://fontawesome.com/
+- Google Fonts https://fonts.google.com/

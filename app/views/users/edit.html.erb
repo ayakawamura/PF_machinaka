@@ -1,4 +1,3 @@
-<div class="box" style="background: #edeae1;">
   <div class = "container">
 
   <div class="row">
@@ -10,7 +9,7 @@
       <%= form_with model: @user,url: user_path(current_user.id), local: true do |f| %>
 
         <div class="mt-5">
-          <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60", class:"image-circle"%>
+          <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60",style:"border-radius: 50%",class:"mb-2"%>
           <%= f.label :icon ,"アイコン"%><br />
           <%= f.attachment_field :icon %>
         </div>
@@ -36,5 +35,4 @@
 
     </div>
   </div>
-</div>
 </div>
