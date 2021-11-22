@@ -1,36 +1,35 @@
-<div class="box" style="background: #edeae1;">
   <div class="container">
 
-    <div class="row">
+    <div class="row mt-5"style="height:500px;">
+      <div id="show-images">
+        <% @post.post_images.each do |image| %>
+          <%= attachment_image_tag image, :image ,class:"img-fluid"%>
+        <% end %>
+      </div>
+    </div>
 
-      <div class="col-lg-7" style="height:500px;">
-        <div id="show-images">
-          <% @post.post_images.each do |image| %>
-            <%= attachment_image_tag image, :image ,class:"img-fluid"%>
-          <% end %>
-        </div>
+    <% if user_signed_in? %>
+      <div id="post_<%= @post.id %>" class="text-right">
+        <%= render "favorites/iine", post: @post %>
+      </div>
+    <% end %>
 
-        <% if user_signed_in? %>
-          <div id="post_<%= @post.id %>">
-            <%= render "favorites/iine", post: @post %>
+    <div class="row mt-5">
+      <div class="col-md-6 mb-5">
+
+        <%= link_to user_path(@user) do %>
+          <div class="row bottom-line">
+            <div>
+              <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60",style:"border-radius:50%" %>
+            </div>
+            <h5 class="pt-3 pl-3"><%= @user.name %></h5>
           </div>
         <% end %>
 
-      </div>
 
-      <div class="col-lg-4 offset-lg-1 mt-auto">
-        <div class="row">
-          <%= link_to user_path(@user) do %>
-            <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60" %>
-            <%= @user.name %>
-          <% end %>
-        </div>
-
-        <div>
-          <%= @post.address %>
-          <%= @post.latitude %>
-          <%= @post.longitude %>
-          <%= @post.body %>
+        <div class="pt-3">
+          <p>撮影場所：<%= @post.address %></p>
+          <p><%= @post.body %></p>
         </div>
 
         <% if user_signed_in? %>
@@ -41,29 +40,31 @@
             </div>
           <% end %>
         <% end %>
-
-        <div id="map" style='width: 100%; height: 400px;'></div>
-
       </div>
+
+      <div class="col-md-5 offset-md-1">
+        <div id="map" style='width: 100%; height: 300px;'></div>
+      </div>
+
     </div>
 
-    <h5 class="mt-5">Comments</h5>
+    <h2 class="top-line">COMMENTS</h2>
     <div class="row">
 
-      <div id="comment_area" class="col-md-7">
-      <%= render "post_comments/comment", post_comments: @post_comments %>
-    </div>
+      <div class="col-md-4">
+        <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメント入力" ,class:"form-control"%>
+          <%= f.submit "送信する" ,class:"btn btn-outline-secondary mt-1 mb-5"%>
+        <% end %>
+      </div>
 
-      <div class="col-md-4 offset-md-1">
-      <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "コメント入力" ,class:"form-control"%>
-        <%= f.submit "送信する" %>
-      <% end %>
-    </div>
+      <div id="comment_area" class="col-md-7 offset-md-1">
+        <%= render "post_comments/comment", post_comments: @post_comments %>
+      </div>
+
     </div>
 
   </div>
-</div>
 
 <!--map表示-->
 <script type="text/javascript">

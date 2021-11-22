@@ -5,7 +5,7 @@
 
 // topページメイン画像
 #top{
-  height: 600px;
+  height: 700px;
   width: 100%;
   .top1{
    background-image: image-url("top1.jpg");
@@ -24,10 +24,10 @@
   }
 }
 
-.select{
+#select{
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   margin: 50px auto;
 }
 
@@ -48,5 +48,7 @@
   border-radius: 3rem;
 }
 
-
+.container{
+  margin-top: 200px;
+}
 

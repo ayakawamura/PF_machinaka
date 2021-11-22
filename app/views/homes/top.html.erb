@@ -24,11 +24,11 @@
     </div>
   </div>
 
-    <h2>NEW POSTS</h2>
+    <h2 class="top-line">NEW POSTS</h2>
     <%=render "posts/post_index", posts: @posts %>
-    <div class="text-center"><%= link_to "view more", posts_path, class:"top-btn"%></div>
+    <div class="text-center mt-3"><%= link_to "view more", posts_path, class:"top-btn"%></div>
 
-  <div class="select">
+  <div id="select" class="top-line">
     <div class="select-item">
     <%= link_to new_post_path do%>
       <%= image_tag("camera.png",size: "40x40")%>

@@ -27,15 +27,14 @@
 
 header{
   height: 80px;
-  background: #FFF;
-  border-bottom: 1px solid #e3e3e3;
+  background: rgba(255,255,255,0.6);
+  // border-bottom: 1px solid #e3e3e3;
   text-align: center;
   position: relative;
 }
 
 .brand{
-  margin-top: 10px;
-  font-size: 40px;
+  font-size: 50px;
   font-family: 'Estonia', cursive;
   a{
     color: #9e665d;
@@ -62,7 +61,7 @@ header{
 
 h2{
   text-align: center;
-  margin: 100px auto 50px;
+  margin: 100px auto 40px;
   // border-bottom: 3px solid #6c6b6b;
   font-family: 'Dosis', sans-serif;
 }
@@ -188,4 +187,14 @@ h2{
 .back {
   padding: 10px;
   color: #9e665d;
+}
+
+.top-line{
+  border-top: 1px solid #e3e3e3;
+  padding-top: 50px;
+}
+
+.bottom-line{
+  border-bottom: 1px solid #e3e3e3;
+  padding-bottom: 30px;
 }

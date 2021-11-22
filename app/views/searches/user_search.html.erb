@@ -1,11 +1,7 @@
-<div class="box" style="background: #edeae1;">
-  <div class = "container">
+<div class = "container">
 
-    <h2>User '<%= @word %>'</h2>
-    <%= render "searches/form_user_search" %>
-
-<%= render "users/user_index", users: @users %>
-
-</div>
+  <h2>User '<%= @word %>'</h2>
+  <%= render "searches/form_user_search" %>
+  <%= render "users/user_index", users: @users %>
 
 </div>

@@ -2,12 +2,12 @@
 
   <div id="profile">
     <div class="row mb-2 mx-auto" style="width:90%" >
-      <div class="col-3">
-        <%= attachment_image_tag @user, :icon, :fill, 100, 100, fallback: "no_image.png",size:"100x100",style:"border-radius:50%" %>
+      <div class="col-2">
+        <%= attachment_image_tag @user, :icon, :fill, 110, 110, fallback: "no_image.png",size:"110x110",style:"border-radius:50%" %>
 
       </div>
 
-      <div class="col-8 ml-auto">
+      <div class="col-9 ml-auto">
 
         <div class="row m-0">
         <h5><%= @user.name %></h5>
