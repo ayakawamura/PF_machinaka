@@ -1,11 +1,11 @@
 inherit_from:
   - .rubocop_airbnb.yml
 
-# 字数制限を100から150文字へ
+# 字数制限を100から150文字へ変更
 Layout/LineLength:
   Max: 150
 
-#ここにはrubocopでコード解析したくないファイルやフォルダを指定します
+#解析したくないファイルやフォルダを指定
 AllCops:
   Exclude:
     - 'db/**/*'
@@ -17,5 +17,4 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
-    
-  
+

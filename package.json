@@ -1,5 +1,7 @@
 {
   "name": "pf_machinaka",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "lightbox2": "^2.11.3"
+  }
 }
