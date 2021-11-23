@@ -1,12 +1,11 @@
 <div class = "container">
+  <h2>LOGIN</h2>
   <div class="row">
-    <div class="col-md-7 mx-auto p-5">
-
-      <h2>LOGIN</h2>
+    <div class="col-md-6 mx-auto">
 
       <%= form_with model: @user, url:user_session_path, local: true do |f| %>
 
-        <div class="mt-5">
+        <div class="mt-4">
           <%= f.label :name %><br />
           <%= f.text_field :name, autofocus: true ,class:"form-control"%>
         </div>

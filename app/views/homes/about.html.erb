@@ -1,16 +1,18 @@
-<div class="text-center">
-  <h2>About</h2>
-  <p class="py-5">
-    このサイトは照明好きのための写真投稿サイトです。<br/>
-    趣味・仕事・暇つぶしもにご活用ください。<br/>
-    閲覧はどなたでもしていただけますが、投稿にはログインが必要です。
-  </p>
-</div>
-
-<div class="d-flex justify-content-center text-dark pt-5">
-    <p class="pr-4"><%= link_to "写真をさがす", posts_path %></p>
-    <p class="pr-4"><%= link_to "Top", root_path %></p>
-    <p class="pr-4"><%= link_to "login", new_user_session_path %></p>
+<div class="container">
+  <div class="text-center">
+    <h2>ABOUT</h2>
+    <p class="py-5">
+      このサイトは照明好きのための写真投稿サイトです。<br/>
+      趣味・仕事・暇つぶしもにご活用ください。<br/>
+      閲覧はどなたでもしていただけますが、投稿にはログインが必要です。
+    </p>
+  </div>
+  
+  <div id="about" class="d-flex justify-content-center pt-5">
+      <p class="pr-4"><%= link_to "写真をさがす", posts_path %></p>
+      <p class="pr-4"><%= link_to "Top", root_path %></p>
+      <p class="pr-4"><%= link_to "login", new_user_session_path %></p>
+  </div>
 </div>
 
 

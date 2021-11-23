@@ -17,6 +17,11 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+$main-color: #9e665d;
+$sub-color: #ece6e0;
+$line-color: #e3e3e3;
+$text-color: #6c6b6b;
+
 * {
   margin: 0;
   padding: 0;
@@ -24,44 +29,48 @@
   color: #6c6b6b;
 }
 
+.container{
+  margin-top: 180px;
+}
 
 header{
   height: 80px;
   background: rgba(255,255,255,0.6);
-  // border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid $line-color;
   text-align: center;
   position: relative;
-}
 
-.brand{
-  font-size: 50px;
-  font-family: 'Estonia', cursive;
-  a{
-    color: #9e665d;
+  .brand{
+    font-size: 50px;
+    font-family: 'Estonia', cursive;
+
+    a{
+      color: $main-color;
+    }
+    a:hover{
+      text-decoration: none;
+      color: $sub-color;
+    }
+
+  }
+
+  .social {
+    position: absolute;
+    top: 27px;
+    right: 22px;
+
+    a{
+      display: inline-block;
+      margin-left: 10px;
+      color: $text-color;
+    }
   }
 }
 
-.social {
-  position: absolute;
-  top: 27px;
-  right: 22px;
-
-  a{
-    display: inline-block;
-    margin-left: 10px;
-    color: #6c6b6b;
-  }
-}
-
-.box{
-  width: 100%;
-  padding: 100px 0;
-
-}
 
 h2{
   text-align: center;
-  margin: 100px auto 40px;
+  margin: 0 auto 20px;
   // border-bottom: 3px solid #6c6b6b;
   font-family: 'Dosis', sans-serif;
 }
@@ -72,16 +81,17 @@ h2{
   li{
     a {
       border: none;
-      color: #6c6b6b;
-    }
-    a:hover {
-      border-radius: 5px;
-      color: #6c6b6b;
+      color: $text-color;
+    
+      &:hover {
+        border-radius: 5px;
+        color: $text-color;
+      }
     }
   }
 
   .active>.page-link{
-    background: #6c6b6b;
+    background: $text-color;
     border-radius: 5px;
   }
 }
@@ -92,62 +102,69 @@ h2{
   position: fixed;
   right: 20px;
   bottom: 20px;
-}
-.arrow-img {
-  width: 50px;
-  height: 50px;
+
+  .arrow-img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 // ハンバーガーアイコン
+%trigger {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+
 #hm-icon {
   position: fixed;
   left: 20px;
   top: 30px;
   z-index: 10;
-}
-.menu-trigger,
-.menu-trigger span {
-  display: inline-block;
-  transition: all .4s;
-  box-sizing: border-box;
-}
-.menu-trigger {
-  position: relative;
-  width: 30px;
-  height: 20px;
-}
-.menu-trigger span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #6c6b6b;
-  border-radius: 10px;
-}
-.menu-trigger span:nth-child(1) {
-  top: 0;
-}
-.menu-trigger span:nth-child(2) {
-  top: 9px;
-}
-.menu-trigger span:nth-child(3) {
-  bottom: 0;
-}
-.menu-trigger.active span:nth-child(1) {
-  -webkit-transform: translateY(9px) rotate(-45deg);
-  transform: translateY(9px) rotate(-45deg);
-  background-color: #FFF;
-}
-.menu-trigger.active span:nth-child(2) {
-  opacity: 0;
-}
-.menu-trigger.active span:nth-child(3) {
-  -webkit-transform: translateY(-9px) rotate(45deg);
-  transform: translateY(-9px) rotate(45deg);
-  background-color: #FFF;
+
+  .menu-trigger {
+    @extend %trigger;
+    position: relative;
+    width: 30px;
+    height: 20px;
+
+    span {
+      @extend %trigger;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $text-color;
+      border-radius: 10px;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 9px;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+
+    &.active span:nth-child(1) {
+      -webkit-transform: translateY(9px) rotate(-45deg);
+      transform: translateY(9px) rotate(-45deg);
+      background-color: #FFF;
+    }
+    &.active span:nth-child(2) {
+      opacity: 0;
+    }
+    &.active span:nth-child(3) {
+      -webkit-transform: translateY(-9px) rotate(45deg);
+      transform: translateY(-9px) rotate(45deg);
+      background-color: #FFF;
+    }
+  }
 }
 
-// ハンバーガーアイコン　中身
+// ハンバーガーアイコン表示内容
 #sp-menu {
   position: fixed;
   top: 0;
@@ -157,28 +174,31 @@ h2{
   min-height: 100%;
   display: none;
   z-index: 9;
-}
-#sp-menu ul {
-  margin-top: 100px;
-}
-#sp-menu li {
-  text-align: center;
-  margin-bottom: 30px;
-  font-family: 'Dosis', sans-serif;
 
-}
-#sp-menu span {
-  color: #FFF;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px
+  ul {
+    margin-top: 100px;
+  }
+  li {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Dosis', sans-serif;
+  }
+  span {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px
+  }
+  a:hover{
+    color: #FFF;
+  }
 }
 
 // 投稿、ログインボタン
 .submit{
   width: 40%;
   padding: 10px;
-  background: #9e665d;
+  background: $main-color;
   color: #edeae2;
   border-radius: 3rem;
   border: none;
@@ -186,15 +206,122 @@ h2{
 
 .back {
   padding: 10px;
-  color: #9e665d;
+  color: $main-color;
+  &:hover{
+    color: $main-color;
+  }
 }
 
 .top-line{
-  border-top: 1px solid #e3e3e3;
+  border-top: 1px solid $line-color;
   padding-top: 50px;
 }
 
 .bottom-line{
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid $line-color;
   padding-bottom: 30px;
 }
+
+
+// topページメイン画像
+#top{
+  height: 700px;
+  width: 100%;
+  .top1{
+   background-image: image-url("top1.jpg");
+  }
+  .top2{
+   background-image: image-url("top2.jpg");
+  }
+  .top3{
+   background-image: image-url("top3.jpg");
+  }
+  .top4{
+   background-image: image-url("top4.jpg");
+  }
+  .top5{
+   background-image: image-url("top5.jpg");
+  }
+}
+
+#select{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 50px auto;
+
+  .select-item{
+    width: 20%;
+    background: $sub-color;
+    text-align: center;
+    border-radius: 2rem;
+    padding-top: 30px;
+    margin: 0 auto;
+    &:hover{
+      background: #f5f1ed;
+    }
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
+// view more
+.top-btn{
+  padding: 10px 20px;
+  color: $main-color;
+  border: 1px solid $main-color;
+  border-radius: 3rem;
+
+  &:hover{
+    color: $main-color;
+  }
+}
+
+// アバウトページ
+#about a{
+  color: $text-color;
+}
+
+// ユーザーページ
+#user-card{
+  background: $sub-color;
+  border-radius: 1rem;
+  &:hover{
+    background: #f5f1ed;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+#profile{
+  border-bottom: 1px solid $line-color;
+  margin: 60px 0 20px 0;
+  p a{
+    color: $text-color;
+  }
+}
+
+
+
+// 投稿ページ
+// タグ一覧
+.tag-list{
+  background: $sub-color;
+  border-radius: 1rem;
+  margin-bottom: 50px;
+  padding: 30px;
+
+  a{
+    color: $text-color
+  }
+  a:hover{
+    text-decoration: none;
+    color: $main-color;
+  }
+  p{
+    font-weight: bold;
+  }
+}
+

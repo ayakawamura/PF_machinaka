@@ -29,11 +29,11 @@
           <p class="col-4"><%= @user.posts.count %>
             <br/>投稿
           </p>
-          <p class="col-4"><%= link_to user_followings_path(@user.id) do %><%= @user.followings.count %><%end%>
-            <br/>フォロー
+          <p class="col-4"><%= link_to user_followings_path(@user.id) do %><%= @user.followings.count %>
+            <br/>フォロー<%end%>
           </p>
-          <p class="col-4"><%= link_to user_followers_path(@user.id) do %><%= @user.followers.count %><%end%>
-            </br>フォロワー
+          <p class="col-4"><%= link_to user_followers_path(@user.id) do %><%= @user.followers.count %>
+            </br>フォロワー<%end%>
           </p>
         </div>
 
