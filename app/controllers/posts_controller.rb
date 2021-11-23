@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
-  before_action :ensure_correct_user,only:[:edit,:update,:destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   def index
     # いいね順が多いに並び替え
-    posts = Post.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    posts = Post.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
     # pagination使用
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(9)
     @tags = Tag.all
@@ -64,14 +64,15 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
-    params.require(:post).permit(:body, :address, :latitude, :longitude, post_images_images:[] )
+    params.require(:post).permit(:body, :address, :latitude, :longitude, post_images_images: [])
   end
 
   def ensure_correct_user
     @post = Post.find(params[:id])
     unless @post.user_id == current_user.id
-    redirect_to request.referer
+      redirect_to request.referer
     end
   end
 end

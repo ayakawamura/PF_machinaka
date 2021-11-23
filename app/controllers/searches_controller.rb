@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
 
   def tag_search
     @tags = Tag.all
-    @tag=Tag.find(params[:tag_id])
-    @posts=@tag.posts.page(params[:page]).per(9)
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.page(params[:page]).per(9)
   end
 end

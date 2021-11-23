@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   validates :name, presence: true, uniqueness: true
-  validates :introduction, length: {maximum:50}
+  validates :introduction, length: { maximum: 50 }
   attachment :icon
 
   # フォローメソッド
@@ -34,10 +34,9 @@ class User < ApplicationRecord
   # ユーザー検索
   def self.looks(word)
     if word != ""
-      User.where("name LIKE?","%#{word}%")
+      User.where("name LIKE?", "%#{word}%")
     else
       User.all
     end
   end
-
 end

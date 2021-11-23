@@ -2,18 +2,18 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   devise_for :users
 
-  resources :users, only:[:index,:show,:edit,:update] do
-    resource :relationships, only:[:create,:destroy]
+  resources :users, only: [:index, :show, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
     get "followings" => 'relationships#followings'
     get "followers" => 'relationships#followers'
   end
 
   resources :posts do
-    resources :post_comments, only:[:create,:destroy]
-    resource :favorites, only:[:create,:destroy]
+    resources :post_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
 
-  resources :tags, only:[:index] do
+  resources :tags, only: [:index] do
     get 'search' => 'searches#tag_search'
   end
 

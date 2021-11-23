@@ -19,6 +19,4 @@ class FavoritesController < ApplicationController
     all_favorites = Post.find(favorites)
     @all_favorites = Kaminari.paginate_array(all_favorites).page(params[:page]).per(9)
   end
-
-
 end
