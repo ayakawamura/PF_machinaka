@@ -1,4 +1,5 @@
 <div class = "container">
+  <%= render "layouts/flash" %>
 
   <div id="profile">
     <div class="row mb-2 mx-auto" style="width:90%" >
@@ -10,7 +11,7 @@
       <div class="col-9 ml-auto">
 
         <div class="row m-0">
-        <h5><%= @user.name %></h5>
+        <h4><%= @user.name %></h4>
         <div class="ml-auto"><% if user_signed_in? %>
           <% unless @user.id == current_user.id %>
             <% if current_user.following?(@user) %>

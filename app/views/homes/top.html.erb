@@ -9,18 +9,21 @@
     <div class="top5"></div>
   </div>
 </div>
+<%= render "layouts/flash" %>
 
-<div class="container">
+<div class="container mt-5">
 
-  <div class="row">
-    <div class="col-md-5">
-      <p>Life × Light</p>
-      <p></p>
-      <div class="text-center"><%= link_to "about", homes_about_path, class:"top-btn"%></div>
+  <div class="row mx-auto py-5" style="width:80%;">
+    <div class="col-7 text-center mt-5">
+      <h2>Life × Light</h2>
+      <p class="pb-3" style="line-height:40px;">
+        あなたの街の "あかり"<br/>広めてください。
+        </p>
+      <div><%= link_to "about", homes_about_path, class:"top-btn"%></div>
     </div>
 
-    <div class="col-md-5">
-      <p></p>
+    <div class="col-5">
+        <div class="top7"></div>
     </div>
   </div>
 
