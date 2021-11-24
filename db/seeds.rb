@@ -49,7 +49,7 @@ Post.create!(
     {
       id: 1,
       user_id: 1,
-      body: "近所の教会です。夜のライトアップが綺麗。",
+      body: "近所の公園です。夜のライトアップが綺麗。",
       address: "北浜",
       latitude: 34.690301,
       longitude: 135.506671
@@ -57,7 +57,7 @@ Post.create!(
     {
       id: 2,
       user_id: 1,
-      body: "中之島公園。最近よく行きます。",
+      body: "中之島のカフェ。最近よく行きます。",
       address: "中之島",
       latitude: 34.69164444764444,
       longitude: 135.51053204809622
@@ -65,7 +65,7 @@ Post.create!(
     {
       id: 3,
       user_id: 1,
-      body: "淀屋橋の橋の上。夜のライトアップが綺麗でした。",
+      body: "道沿いのショーウィンドウから可愛らしいペンダントが。",
       address: "淀屋橋",
       latitude: 34.69312620222165,
       longitude: 135.5009936633859
@@ -73,7 +73,7 @@ Post.create!(
     {
       id: 4,
       user_id: 2,
-      body: "先日納品したシャンデリアです。ホテル用に特注。",
+      body: "先日納品したカフェの照明です。インテリアと合わさって素敵になりました！",
       address: "三宮",
       latitude: 34.694022053319536,
       longitude: 135.1927557398463,
@@ -81,7 +81,7 @@ Post.create!(
     {
       id: 5,
       user_id: 3,
-      body: "カフェの照明。ペンダントが可愛い。",
+      body: "電球いっぱい並んでました。",
       address: "京都",
       latitude: 35.00390423033931,
       longitude: 135.7694259377733
@@ -95,31 +95,31 @@ Post.create!(
     {
       id: 7,
       user_id: 4,
-      body: "夜ですね。",
+      body: "行きつけのバーの看板。",
       address: "東京",
     },
     {
       id: 8,
       user_id: 5,
-      body: "大都会！！わああああああああああああい",
+      body: "神奈川のカフェ。ペンダントがとても可愛かったです。",
       address: "神奈川",
     },
     {
       id: 9,
       user_id: 3,
-      body: "パン屋さん。",
+      body: "インテリアショップでモロッコ風の照明にたくさん出会いました。",
       address: "京都"
     },
     {
       id: 10,
       user_id: 4,
-      body: "きれいでした。",
+      body: "中が泡みたいになってるペンダント。欲しいです。",
       address: "東京",
     },
     {
       id: 11,
       user_id: 5,
-      body: "大自然・・・・・・。",
+      body: "小さな吊り下げライトがかわいい！",
       address: "北海道",
     }
   ]
@@ -210,23 +210,27 @@ Tag.create!(
     },
     {
       id: 7,
-      name: "スポットライト"
-    },
-    {
-      id: 8,
-      name: "看板灯"
-    },
-    {
-      id: 9,
-      name: "ドライブ"
-    },
-    {
-      id: 10,
       name: "電球"
     },
     {
+      id: 8,
+      name: "白熱ランプ"
+    },
+    {
+      id: 9,
+      name: "モロッコ風"
+    },
+    {
+      id: 10,
+      name: "インテリア"
+    },
+    {
       id: 11,
-      name: "LED"
+      name: "看板灯"
+    },
+    {
+      id: 12,
+      name: "カフェ"
     }
   ]
 )
@@ -246,12 +250,20 @@ TagRelationship.create!(
       tag_id: 3
     },
     {
-      post_id: 2,
+      post_id: 1,
       tag_id: 4
     },
     {
       post_id: 2,
-      tag_id: 5
+      tag_id: 6
+    },
+    {
+      post_id: 2,
+      tag_id: 12
+    },
+    {
+      post_id: 3,
+      tag_id: 10
     },
     {
       post_id: 3,
@@ -259,6 +271,18 @@ TagRelationship.create!(
     },
     {
       post_id: 4,
+      tag_id: 12
+    },
+    {
+      post_id: 4,
+      tag_id: 6
+    },
+    {
+      post_id: 4,
+      tag_id: 10
+    },
+    {
+      post_id: 5,
       tag_id: 7
     },
     {
@@ -267,23 +291,55 @@ TagRelationship.create!(
     },
     {
       post_id: 6,
-      tag_id: 9
+      tag_id: 8
     },
     {
-      post_id: 7,
+      post_id: 6,
       tag_id: 10
     },
     {
-      post_id: 3,
+      post_id: 6,
+      tag_id: 12
+    },
+    {
+      post_id: 7,
       tag_id: 3
     },
     {
-      post_id: 5,
-      tag_id: 7
+      post_id: 7,
+      tag_id: 11
+    },
+    {
+      post_id: 8,
+      tag_id: 6
+    },
+    {
+      post_id: 8,
+      tag_id: 10
+    },
+    {
+      post_id: 8,
+      tag_id: 12
+    },
+    {
+      post_id: 9,
+      tag_id: 9
+    },
+    {
+      post_id: 9,
+      tag_id: 10
     },
     {
       post_id: 10,
-      tag_id: 11
+      tag_id: 5
+    },
+    {
+      post_id: 10,
+      tag_id: 6
+    },
+    {
+      post_id: 11,
+      tag_id: 7
     }
   ]
 )
