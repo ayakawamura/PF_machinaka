@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   has_many :post_images, dependent: :destroy
   accepts_attachments_for :post_images, attachment: :image
 
+  # 住所から緯度経度を取得
   geocoded_by :address
   after_validation :geocode
 
@@ -42,7 +43,7 @@ class Post < ApplicationRecord
     end
   end
 
-  # 投稿検索
+  # キーワード（住所と投稿文）で検索
   def self.looks(word)
     if word != ""
       Post.where("body LIKE(?) OR address LIKE(?)", "%#{word}%", "%#{word}%")
