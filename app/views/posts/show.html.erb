@@ -1,12 +1,18 @@
 <div class="container">
   <%= render "layouts/flash" %>
 
-  <div class="row mt-3"style="height:600px;">
-    <div id="show-images">
-      <% @post.post_images.each do |image| %>
-          <%= attachment_image_tag image, :image ,class:"img-fluid" %>
-      <% end %>
-    </div>
+  <div class="row mt-3" style="height: 600px;">
+    <% unless @post.post_images.present? %>
+      <div class="no-image"  style="height: 600px;">
+        <span>No image is available</span>
+      </div>
+    <%else%>
+      <div id="show-images">
+        <% @post.post_images.each do |image| %>
+            <%= attachment_image_tag image, :image ,class:"img-fluid"%>
+        <% end %>
+      </div>
+    <%end%>
   </div>
 
   <% if user_signed_in? %>
