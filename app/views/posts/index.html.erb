@@ -1,6 +1,6 @@
 <div class="container">
   <div class="tag-list">
-    <p><i class="fas fa-hashtag"></i>タグで探す</p>
+    <p><i class="fas fa-tag"></i>タグで探す</p>
     <% @tags.each do |tag| %>
       <span class="pr-1">
         <%= link_to tag_search_path(tag_id: tag.id) do%><%=tag.name%><%="(#{tag.posts.count})" %><%end%>

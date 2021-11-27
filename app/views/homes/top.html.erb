@@ -14,7 +14,7 @@
 <div class="container mt-5">
 
   <div class="row mx-auto py-5" style="width:80%;">
-    <div class="col-7 text-center mt-5">
+    <div class="col-7 text-center mt-3">
       <h2>Life × Light</h2>
       <p class="pb-3" style="line-height:40px;">
         あなたの街の "あかり"<br/>広めてください。
@@ -23,41 +23,50 @@
     </div>
 
     <div class="col-5">
-        <div class="top7"></div>
+        <div id="top6"></div>
     </div>
   </div>
 
     <h2 class="top-line">NEW POSTS</h2>
     <%=render "posts/post_index", posts: @posts %>
-    <div class="text-center mt-3"><%= link_to "view more", posts_path, class:"top-btn"%></div>
+    <div class="text-center my-3"><%= link_to "view more", posts_path, class:"top-btn"%></div>
 
-  <div id="select" class="top-line">
-    <div class="select-item">
+  <div id="top-select" class="top-line row mx-auto mt-5 px-5">
+
+    <div class="col-lg-3 col-sm-6 mb-3">
     <%= link_to new_post_path do%>
-      <%= image_tag("camera.png",size: "40x40")%>
-      <p class="mt-2">投稿する</p>
+      <div class="select">
+        <%= image_tag("camera.png",size: "40x40")%>
+        <p class="mt-2">投稿する</p>
+      </div>
     <%end%>
     </div>
 
-    <div class="select-item">
-      <%= link_to posts_path do%>
-      <%= image_tag("light.png",size: "40x40")%>
-      <p class="mt-2">照明を探す</p>
-      <%end%>
+    <div class="col-lg-3 col-sm-6 mb-3">
+    <%= link_to posts_path do%>
+      <div class="select">
+        <%= image_tag("light.png",size: "40x40")%>
+        <p class="mt-2">照明を探す</p>
+      </div>
+    <%end%>
     </div>
 
-    <div class="select-item">
-      <%= link_to users_path do%>
-      <%= image_tag("user.png",size: "40x40")%>
-      <p class="mt-2">ユーザーを探す</p>
-      <%end%>
+    <div class="col-lg-3 col-sm-6 mb-3">
+    <%= link_to users_path do%>
+      <div class="select">
+        <%= image_tag("user.png",size: "40x40")%>
+        <p class="mt-2">ユーザーを探す</p>
+      </div>
+    <%end%>
     </div>
 
-    <div class="select-item">
-      <%= link_to timeline_path do%>
-      <%= image_tag("timeline.png",size: "40x40")%>
-      <p class="mt-2">タイムライン</p>
-      <%end%>
+    <div class="col-lg-3 col-sm-6 mb-3">
+    <%= link_to timeline_path do%>
+      <div class="select">
+        <%= image_tag("timeline.png",size: "40x40")%>
+        <p class="mt-2">タイムライン</p>
+      </div>
+    <%end%>
     </div>
 
   </div>

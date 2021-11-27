@@ -30,7 +30,7 @@ $text-color: #6c6b6b;
 }
 
 .container{
-  margin-top: 180px;
+  margin-top: 150px;
 }
 
 header{
@@ -78,6 +78,7 @@ h2{
   text-align: center;
   margin: 0 auto 30px;
   font-family: 'Dosis', sans-serif;
+  padding-top: 30px;
 }
 
 .pagination{
@@ -233,13 +234,13 @@ h2{
   height: 700px;
   width: 100%;
   .top1{
-   background-image: image-url("top3.jpg");
+   background-image: image-url("top1.jpg");
   }
   .top2{
    background-image: image-url("top2.jpg");
   }
   .top3{
-   background-image: image-url("top1.jpg");
+   background-image: image-url("top3.jpg");
   }
   .top4{
    background-image: image-url("top4.jpg");
@@ -249,32 +250,28 @@ h2{
   }
 }
 
-.top7 {
-  background-image: image-url("top7.jpg");
+#top6 {
+  background-image: image-url("top6.jpg");
   width: 230px;
   height: 300px;
   background-size: cover;
 }
 
+#top-select{
+    a:hover{
+    text-decoration: none;
+  }
 
-#select{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 50px auto;
-
-  .select-item{
-    width: 20%;
+  .select{
+    width: 100%;
     background: $sub-color;
     text-align: center;
     border-radius: 2rem;
-    padding-top: 30px;
+    padding: 30px 10px 10px 10px;
     margin: 0 auto;
+
     &:hover{
       background: #f5f1ed;
-    }
-    a{
-      text-decoration: none;
     }
   }
 }

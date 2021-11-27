@@ -16,6 +16,9 @@
     <ul>
       <% if user_signed_in? %>
         <li>
+          <%= link_to root_path do %><span>top</span><%end%>
+        </li>
+        <li>
           <%= link_to timeline_path do %><span>timeline</span><%end%>
         </li>
         <li>
@@ -37,6 +40,9 @@
           <%= link_to destroy_user_session_path, method: :delete do %><span>logout</span><%end%>
         </li>
       <% else %>
+        <li>
+          <%= link_to root_path do %><span>top</span><%end%>
+        </li>
         <li>
           <%= link_to homes_about_path do %><span>about</span><%end%>
         </li>
