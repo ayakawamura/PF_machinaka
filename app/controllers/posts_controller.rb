@@ -33,9 +33,9 @@ class PostsController < ApplicationController
     @user = @post.user
     @post_comment = PostComment.new
     post_comments = @post.post_comments.includes(:user).order('created_at DESC')
-    # 最初の4件を表示
-    @comments_first = post_comments.first(4)
-    # 最初の4件を除くコメントを表示
+    # 新着の4件を表示
+    @comments_latest = post_comments.first(4)
+    # 4件を除くコメントを表示
     @comments_offset = post_comments.offset(4)
   end
 
