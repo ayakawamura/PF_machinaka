@@ -43,7 +43,6 @@ https://docs.google.com/spreadsheets/d/1bIQnwA5uEXGdjTAiUuRy10iLJlMC4aPh7b9RzUuN
 
 ## 使用素材
 - pixoboy      https://pixabay.com/ja/
-- Font Free    https://fontfree.me/
 - designevo    https://www.designevo.com/
 - ICON BOX     https://iconbox.fun/
 - ICOOON MONO  https://icooon-mono.com/
