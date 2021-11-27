@@ -25,14 +25,18 @@ class PostsController < ApplicationController
     posts = Post.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
     # pagination使用
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(9)
-    @tags = Tag.all
+    @tags = Tag.all.sort { |a, b| b.posts.count <=> a.posts.count }
   end
 
   def show
     @post = Post.find(params[:id])
-    @post_comments = @post.post_comments.includes(:user)
     @user = @post.user
     @post_comment = PostComment.new
+    post_comments = @post.post_comments.includes(:user).order('created_at DESC')
+    # 最初の4件を表示
+    @comments_first = post_comments.first(4)
+    # 最初の4件を除くコメントを表示
+    @comments_offset = post_comments.offset(4)
   end
 
   def edit

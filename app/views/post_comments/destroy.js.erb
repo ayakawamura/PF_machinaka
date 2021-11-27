@@ -1,2 +1,3 @@
-$("#comment_area").html("<%= j(render "post_comments/comment", post_comments: @post_comments)%>")
+$("#first_comment_area").html("<%= j(render "post_comments/comment", post_comments: @comments_first)%>")
+$("#last_comment_area").html("<%= j(render "post_comments/comment", post_comments: @comments_offset)%>")
 $("#post_comment_comment").val("")

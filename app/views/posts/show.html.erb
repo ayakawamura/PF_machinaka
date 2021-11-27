@@ -60,10 +60,24 @@
         <%= f.text_area :comment, rows:'5',placeholder: "コメント入力" ,class:"form-control"%>
         <%= f.submit "送信する" ,class:"btn btn-outline-secondary mt-1 mb-5"%>
       <% end %>
+
+      <% unless user_signed_in? %>
+        <p>※コメントを送るには<%= link_to "ログイン", new_user_session_path ,style:"color: #9e665d;"%>が必要です</p>
+      <%end%>
     </div>
 
-    <div id="comment_area" class="col-md-7 offset-md-1">
-      <%= render "post_comments/comment", post_comments: @post_comments %>
+    <div class="col-md-7 offset-md-1">
+      <div id="first_comment_area">
+        <%= render "post_comments/comment", post_comments: @comments_first %>
+      </div>
+      <!--5件目以降を表示-->
+      <details>
+        <summary>全てのコメントを表示</summary>
+
+        <div id="last_comment_area">
+          <%= render "post_comments/comment", post_comments: @comments_offset %>
+        </div>
+      </details>
     </div>
   </div>
 
