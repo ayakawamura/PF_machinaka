@@ -24,7 +24,7 @@
         </div>
         </div>
 
-        <p><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></p>
+        <p><%= simple_format(@user.introduction) %></p>
 
         <div class="row text-center pt-3" style="width:90%">
           <p class="col-4"><%= @user.posts.count %>
@@ -38,10 +38,8 @@
           </p>
         </div>
 
-        <% if user_signed_in? %>
-          <% if @user.id == current_user.id %>
+        <% if user_signed_in? && @user.id == current_user.id%>
             <p class="text-right"><%= link_to ">> edit profile", edit_user_path(@user) %></p>
-          <% end %>
         <% end %>
 
       </div>
