@@ -1,6 +1,6 @@
 <div class="container">
   <%= render "layouts/flash" %>
-  
+
   <div class="row mt-3"style="height:600px;">
     <div id="show-images">
       <% @post.post_images.each do |image| %>
@@ -8,25 +8,24 @@
       <% end %>
     </div>
   </div>
-  
+
   <% if user_signed_in? %>
     <div id="post_<%= @post.id %>" class="text-right">
       <%= render "favorites/iine", post: @post %>
     </div>
   <% end %>
-  
+
   <div class="row my-5">
     <div id="post-user-card" class="col-md-6 mb-5">
-  
-      <%= link_to user_path(@user) do %>
-        <div class="row bottom-line">
-          <div>
-            <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60",style:"border-radius:50%" %>
-          </div>
+
+      <div class="bottom-line pl-3">
+        <%= link_to user_path(@user) ,class:"row" do %>
+
+          <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.png",size:"60x60",style:"border-radius:50%" %>
           <h5 class="pt-3 pl-3"><%= @user.name %></h5>
-        </div>
-      <% end %>
-  
+        <% end %>
+      </div>
+
       <p class="pt-3">撮影場所：<%= @post.address %></p>
       <p class="pt-3"><%= @post.body %></p>
       <p id="post-tag" class="pt-3">
@@ -36,7 +35,7 @@
           <%end%>
         <%end%>
       </p>
-  
+
       <% if user_signed_in? %>
         <% if @user.id == current_user.id %>
           <div class="text-right">
@@ -46,15 +45,15 @@
         <% end %>
       <% end %>
     </div>
-  
+
     <div class="col-md-5 offset-md-1">
       <div id="map" style='width: 100%; height: 400px;'></div>
     </div>
-  
+
   </div>
-  
+
   <h2 class="top-line">COMMENT</h2>
-  
+
   <div class="row pt-3">
     <div class="col-md-4">
       <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
@@ -62,12 +61,12 @@
         <%= f.submit "送信する" ,class:"btn btn-outline-secondary mt-1 mb-5"%>
       <% end %>
     </div>
-  
+
     <div id="comment_area" class="col-md-7 offset-md-1">
       <%= render "post_comments/comment", post_comments: @post_comments %>
     </div>
   </div>
-  
+
 </div>
 
 <!--map表示-->

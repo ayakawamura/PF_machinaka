@@ -1,9 +1,8 @@
 <%= form_with url: post_search_path, local: true, method: :get do |f| %>
-
-    <div class="col-md-4 mx-auto pt-3">
-      <div class="row">
-     <%= f.text_field :word , placeholder: "キーワード検索", class:"form-control ml-auto",style:"width: 300px;height: 50px;border-radius:3em;"%>
-     <%= button_tag type: 'submit' ,class: "btn mr-auto" do%><i class="fas fa-search" style="color:#FFF;"></i><%end%>
+    <div class="row mx-auto pt-3">
+      <%= f.text_field :word , placeholder: "キーワード検索", class:"search form-control ml-auto" %>
+      <%= button_tag type: 'submit' ,class: "btn mr-auto" do%>
+        <i class="fas fa-search" style="color:#FFF;"></i>
+      <%end%>
     </div>
-  </div>
 <% end %>
