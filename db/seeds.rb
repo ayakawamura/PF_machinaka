@@ -133,11 +133,15 @@ PostImage.create!(
     },
     {
       post_id: 1,
-      image: File.open('./app/assets/images/park2.jpg')
+      image: File.open('./app/assets/images/top4.jpg')
     },
     {
       post_id: 1,
-      image: File.open('./app/assets/images/top4.jpg')
+      image: File.open('./app/assets/images/sample6.jpg')
+    },
+    {
+      post_id: 1,
+      image: File.open('./app/assets/images/sample7.jpg')
     },
     {
       post_id: 2,

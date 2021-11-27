@@ -22,16 +22,22 @@ $sub-color: #ece6e0;
 $line-color: #e3e3e3;
 $text-color: #6c6b6b;
 
+// header #brand a{
+//     font-family: 'Estonia', cursive;
+// }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: #6c6b6b;
+  font-family: 'Kiwi Maru', serif;
 }
 
 .container{
   margin-top: 150px;
 }
+
 
 header{
   height: 80px;
@@ -40,12 +46,12 @@ header{
   text-align: center;
   position: relative;
 
-  .brand{
+  .brand {
     font-size: 50px;
-    font-family: 'Estonia', cursive;
 
     a{
       color: $main-color;
+      font-family: 'Estonia', cursive;
     }
     a:hover{
       text-decoration: none;
@@ -176,7 +182,7 @@ h2{
   top: 0;
   left: 0;
   background: #000000c2;
-  width: 100%;
+  width: 40%;
   min-height: 100%;
   display: none;
   z-index: 9;
@@ -187,13 +193,14 @@ h2{
   li {
     text-align: center;
     margin-bottom: 30px;
-    font-family: 'Dosis', sans-serif;
   }
   span {
     color: #FFF;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px
+    font-size: 25px;
+    font-family: 'Dosis', sans-serif;
+
   }
   a:hover{
     color: #FFF;
