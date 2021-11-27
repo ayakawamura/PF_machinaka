@@ -27,7 +27,7 @@
       </div>
 
       <p class="pt-3">撮影場所：<%= @post.address %></p>
-      <p class="pt-3"><%= @post.body %></p>
+      <p class="pt-3"><%= safe_join(@post.body.split("\n"),tag(:br)) %></p>
       <p id="post-tag" class="pt-3">
         <% @post.tags.each do |tag| %>
           <%= link_to tag_search_path(tag_id: tag.id) do %>

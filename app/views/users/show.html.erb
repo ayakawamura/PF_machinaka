@@ -3,28 +3,28 @@
 
   <div id="profile">
     <div class="row mb-2 mx-auto" style="width:90%" >
+
       <div class="col-2">
         <%= attachment_image_tag @user, :icon, :fill, 110, 110, fallback: "no_image.png",size:"110x110",style:"border-radius:50%" %>
-
       </div>
 
       <div class="col-9 ml-auto">
-
         <div class="row m-0">
         <h4><%= @user.name %></h4>
-        <div class="ml-auto"><% if user_signed_in? %>
-          <% unless @user.id == current_user.id %>
-            <% if current_user.following?(@user) %>
-              <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class:"btn btn-secondary " %>
-            <% else %>
-              <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class:"btn btn-outline-secondary" %>
+        <div class="ml-auto">
+          <% if user_signed_in? %>
+            <% unless @user.id == current_user.id %>
+              <% if current_user.following?(@user) %>
+                <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class:"btn btn-secondary " %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class:"btn btn-outline-secondary" %>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
         </div>
         </div>
 
-        <p><%= @user.introduction %></p>
+        <p><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></p>
 
         <div class="row text-center pt-3" style="width:90%">
           <p class="col-4"><%= @user.posts.count %>

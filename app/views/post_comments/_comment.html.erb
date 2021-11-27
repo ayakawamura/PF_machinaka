@@ -6,7 +6,7 @@
         <td><%= "#{comment.user.name}:" %>
         </td>
         <td>
-          <%= comment.comment %>
+          <%= simple_format(comment.comment) %>
           <% if comment.user == current_user %>
             <div class="text-right"><%= link_to "delete.", post_post_comment_path(comment.post_id,comment.id), method: :delete, remote: true ,class:"text text-danger"%></div>
           <%end%>
