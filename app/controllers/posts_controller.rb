@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     posts = Post.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
     # pagination使用
     @posts = Kaminari.paginate_array(posts).page(params[:page]).per(9)
+    # タグは関連記事が多い順に表示
     @tags = Tag.all.sort { |a, b| b.posts.count <=> a.posts.count }
   end
 
