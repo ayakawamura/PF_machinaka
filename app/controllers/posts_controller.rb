@@ -15,12 +15,13 @@ class PostsController < ApplicationController
     if @post.save
 
       # APIでタグ取得
+      # 写真一枚ずつタグ取得
       @post.post_images.each do |post_image|
+        # post.post_imageのimage_idカラムをvision.rbに渡す（post_imageモデルのattachmentがimageのため）
         api_tags = Vision.get_image_data(post_image.image)
         api_tags.each do |tag|
-          
+        # tagを取り出して手入力したタグに追加　名前がカブらないようにする
           tag_list << tag unless tag_list.include?(tag)
-            
         end
       end
       pp tag_list
@@ -61,6 +62,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     tag_list = params[:post][:tag].split(",")
     if @post.update(post_params)
+      @post.post_images.each do |post_image|
+        api_tags = Vision.get_image_data(post_image.image)
+        api_tags.each do |tag|
+          tag_list << tag unless tag_list.include?(tag)
+        end
+      end
+      pp tag_list
       @post.save_tags(tag_list)
       redirect_to post_path(@post), notice: '投稿を更新しました'
     else
