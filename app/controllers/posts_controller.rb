@@ -13,7 +13,19 @@ class PostsController < ApplicationController
     # 投稿ページからタグを取得、,で区切って配列にする
     tag_list = params[:post][:tag].split(",")
     if @post.save
+
+      # APIでタグ取得
+      @post.post_images.each do |post_image|
+        api_tags = Vision.get_image_data(post_image.image)
+        api_tags.each do |tag|
+          
+          tag_list << tag unless tag_list.include?(tag)
+            
+        end
+      end
+      pp tag_list
       @post.save_tags(tag_list)
+
       redirect_to post_path(@post), notice: '投稿しました'
     else
       render :new
