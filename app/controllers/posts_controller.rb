@@ -10,21 +10,27 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+
     # 投稿ページからタグを取得、,で区切って配列にする
     tag_list = params[:post][:tag].split(",")
     if @post.save
+
+      # APIでエンティティー取得
+      entities = Language.get_data(post_params[:body])
+      entities.each do |entity|
+        @post.entities.create(name: entity)
+      end
 
       # APIでタグ取得
       # 写真一枚ずつタグ取得
       @post.post_images.each do |post_image|
         # post.post_imageのimage_idカラムをvision.rbに渡す（post_imageモデルのattachmentがimageのため）
         api_tags = Vision.get_image_data(post_image.image)
-        api_tags.each do |tag|
         # tagを取り出して手入力したタグに追加　名前がカブらないようにする
+        api_tags.each do |tag|
           tag_list << tag unless tag_list.include?(tag)
         end
       end
-      pp tag_list
       @post.save_tags(tag_list)
 
       redirect_to post_path(@post), notice: '投稿しました'
@@ -61,15 +67,23 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     tag_list = params[:post][:tag].split(",")
+
     if @post.update(post_params)
+      # 既存エンティティーの削除と新規作成
+      @post.entities.destroy_all
+      entities = Language.get_data(post_params[:body])
+      entities.each do |entity|
+        @post.entities.create(name: entity)
+      end
+
       @post.post_images.each do |post_image|
         api_tags = Vision.get_image_data(post_image.image)
         api_tags.each do |tag|
           tag_list << tag unless tag_list.include?(tag)
         end
       end
-      pp tag_list
       @post.save_tags(tag_list)
+
       redirect_to post_path(@post), notice: '投稿を更新しました'
     else
       render :edit
