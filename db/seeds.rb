@@ -129,7 +129,7 @@ PostImage.create!(
   [
     {
       post_id: 1,
-      image: File.open('./public/uploads/park1.jpg')
+      image: File.open('./app/assets/images/park1.jpg')
     },
     {
       post_id: 1,
@@ -137,11 +137,11 @@ PostImage.create!(
     },
     {
       post_id: 1,
-      image: File.open('./public/uploads/sample6.jpg')
+      image: File.open('./app/assets/images/sample6.jpg')
     },
     {
       post_id: 1,
-      image: File.open('./public/uploads/sample7.jpg')
+      image: File.open('./app/assets/images/sample7.jpg')
     },
     {
       post_id: 2,
@@ -157,31 +157,31 @@ PostImage.create!(
     },
     {
       post_id: 5,
-      image: File.open('./public/uploads/sample1.jpg')
+      image: File.open('./app/assets/images/sample1.jpg')
     },
     {
       post_id: 6,
-      image: File.open('./public/uploads/sample2.jpg')
+      image: File.open('./app/assets/images/sample2.jpg')
     },
     {
       post_id: 7,
-      image: File.open('./public/uploads/sample3.jpg')
+      image: File.open('./app/assets/images/sample3.jpg')
     },
     {
       post_id: 8,
-      image: File.open('./public/uploads/sample4.jpg')
+      image: File.open('./app/assets/images/sample4.jpg')
     },
     {
       post_id: 9,
-      image: File.open('./public/uploads/sample5.jpg')
+      image: File.open('./app/assets/images/sample5.jpg')
     },
     {
       post_id: 10,
-      image: File.open('./public/uploads/sample6.jpg')
+      image: File.open('./app/assets/images/sample6.jpg')
     },
     {
       post_id: 11,
-      image: File.open('./public/uploads/sample7.jpg')
+      image: File.open('./app/assets/images/sample7.jpg')
     }
   ]
 )
