@@ -62,7 +62,7 @@ header{
   .social {
     position: absolute;
     top: 27px;
-    right: 22px;
+    right: 45px;
 
     a{
       display: inline-block;
@@ -219,6 +219,16 @@ h2{
   color: #edeae2;
   border-radius: 3rem;
   border: none;
+}
+
+.guest{
+  width: 40%;
+  padding: 10px;
+  background: #edeae2;
+  textcolor: $main-color;
+  border-radius: 3rem;
+  border: none;
+  margin: 0 auto;
 }
 
 .back {
