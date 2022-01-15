@@ -1,6 +1,6 @@
 class PostCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_comment, only:[:create, :destroy]
+  before_action :set_comment, only: [:create, :destroy]
 
   def create
     comment = current_user.post_comments.new(comment_params)
@@ -22,6 +22,7 @@ class PostCommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:post_comment).permit(:comment)
   end
