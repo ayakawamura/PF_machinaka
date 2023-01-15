@@ -67,19 +67,19 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag].split(",")
 
     if @post.update(post_params)
-      # 既存エンティティーの削除と新規作成
-      @post.entities.destroy_all
-      entities = Language.get_data(post_params[:body])
-      entities.each do |entity|
-        @post.entities.create(name: entity)
-      end
+      # # 既存エンティティーの削除と新規作成
+      # @post.entities.destroy_all
+      # entities = Language.get_data(post_params[:body])
+      # entities.each do |entity|
+      #   @post.entities.create(name: entity)
+      # end
 
-      @post.post_images.each do |post_image|
-        api_tags = Vision.get_image_data(post_image.image)
-        api_tags.each do |tag|
-          tag_list << tag unless tag_list.include?(tag)
-        end
-      end
+      # @post.post_images.each do |post_image|
+      #   api_tags = Vision.get_image_data(post_image.image)
+      #   api_tags.each do |tag|
+      #     tag_list << tag unless tag_list.include?(tag)
+      #   end
+      # end
       @post.save_tags(tag_list)
 
       redirect_to post_path(@post), notice: '投稿を更新しました'
