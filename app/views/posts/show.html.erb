@@ -41,11 +41,11 @@
           <%end%>
         <%end%>
       </p>
-      <p class="pt-5">エンティティー分析
+      <%# <p class="pt-5">エンティティー分析 %>
         <p>
-          <% @post.entities.each do |entity| %><span><%= entity.name %>,　<span><%end%>
+          <% @post.entities.each do |entity| %><span><%= entity.name %><span><%end%>
         </p>
-      </p>
+      <%# </p> %>
 
       <% if user_signed_in? && @user.id == current_user.id %>
         <div class="text-right">
