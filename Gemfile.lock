@@ -191,15 +191,7 @@ GEM
     multi_json (1.15.0)
     mustermann (1.1.2)
       ruby2_keywords (~> 0.0.1)
-    net-imap (0.3.4)
-      date
-      net-protocol
-    net-pop (0.1.2)
-      net-protocol
-    net-protocol (0.2.1)
-      timeout
-    net-smtp (0.3.3)
-      net-protocol
+    mysql2 (0.5.5)
     netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.14.0-arm64-darwin)
